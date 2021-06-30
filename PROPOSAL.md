@@ -8,7 +8,7 @@ As a heavy sleeper, I want to be able to set an alarm that plays random music ea
 
 ## Wireframe or Sketch of the design
 
-![sketch-link](/img/File.jpg)
+![sketch-link](./Assets/img/File.jpg)
 
 ## APIS to be used
 
