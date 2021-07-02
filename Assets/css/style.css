@@ -2,6 +2,7 @@ body {
   font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
 }
 
+<<<<<<< HEAD
 .navbar-brand {
   justify-content: center;
 }
@@ -21,3 +22,8 @@ h1 {
   font-size: 20px;
 }
 
+=======
+.column {
+  flex-wrap: wrap;
+}
+>>>>>>> f89fea35f3592ec0722a7a5ae3a3a54665f70419
