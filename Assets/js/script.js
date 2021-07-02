@@ -14,7 +14,7 @@ fetch(weatherAPI)
     })
 }
 
-//Deezer API
+//Deezer API - Track
 fetch("https://deezerdevs-deezer.p.rapidapi.com/track/1109737", {
 "method": "GET",
 "headers": {
@@ -29,3 +29,17 @@ fetch("https://deezerdevs-deezer.p.rapidapi.com/track/1109737", {
     console.log(data);
 })
 
+//Deezer API - Playlist
+fetch("https://deezerdevs-deezer.p.rapidapi.com/playlist/1699332611", {
+	"method": "GET",
+	"headers": {
+		"x-rapidapi-key": "fc59fffe7fmshcb89d5a6a9a2b0dp186e8bjsna0d4d2f97c64",
+		"x-rapidapi-host": "deezerdevs-deezer.p.rapidapi.com"
+	}
+})
+.then(function (response) {
+    return response.json()
+})
+.then(function (data) {
+    console.log(data);
+})
