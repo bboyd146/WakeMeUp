@@ -28,7 +28,7 @@
           </div>
           <div id="navbarMenuHeroA" class="navbar-menu">
             <div class="navbar-end">
-              <a class="navbar-item is-active">
+              <a class="navbar-item is-active" id="setAlarm">
                 Set Alarm
               </a>
               <a class="navbar-item">
@@ -81,14 +81,53 @@
           Your browser does not support the audio element.
         </audio>
       </div>
+      <!--Modal-->
+      <div class="modal">
+        <div class="modal-background"></div>
+        <div class="modal-card">
+          <header class="modal-card-head">
+            <p class="modal-card-title">Set Alarm</p>
+            <button class="delete" aria-label="close"></button>
+          </header>
+          <section class="modal-card-body">
+            <!-- Content ... -->
+            <div class="field has-addons">
+              <div class="control">
+                <input class="input" type="text" placeholder="Enter Time">
+              </div>
+              <div class="control">
+                <a class="button is-success">
+                  Add Time
+                </a>
+              </div>
+            </div>
+            <div class="control">
+              <label class="radio">
+                <input type="radio" name="foobar">
+                AM
+              </label>
+              <label class="radio">
+                <input type="radio" name="foobar" checked>
+                PM
+              </label>
+            </div>
+          
+          </section>
+          <footer class="modal-card-foot">
+            <button class="button is-success">Save</button>
+          </footer>
+        </div>
+      </div>
+      
+      
       <!-- <button class="button is-danger is-large is-fullwidth is-rounded is-focused">STOP ALARM</button> -->
     <div class="column" id="weather-tab">2</div>
-  </div>
+    </div>
   <!--Footer-->
   <footer class="footer">
     <div class="content has-text-centered">
       <p>
-        <strong>Wake Me Up!</strong> made through the blood sweat and tears of group 5. 
+        <strong>Wake Me Up!</strong> made with the blood sweat and tears of group 5. 
       </p>
     </div>
   </footer>
