@@ -12,5 +12,5 @@ body {
 }
 
 .modal {
-  display: block;
+  display: none;
 }

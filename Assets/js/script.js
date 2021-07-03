@@ -60,3 +60,13 @@ fetch("https://deezerdevs-deezer.p.rapidapi.com/playlist/1699332611", {
 })
 // code for stop alarm button
 {/* <button class="button is-danger is-large is-fullwidth is-rounded is-focused">STOP ALARM</button> */}
+
+//Show Modal//
+var modal = $(".modal");
+
+$("#setAlarm").on("click", function(){
+    modal.show();
+});
+$(".delete").on("click", function(){
+    modal.hide();
+});

@@ -28,7 +28,7 @@
           </div>
           <div id="navbarMenuHeroA" class="navbar-menu">
             <div class="navbar-end">
-              <a class="navbar-item is-active">
+              <a class="navbar-item is-active" id="setAlarm">
                 Set Alarm
               </a>
               <a class="navbar-item">
@@ -91,10 +91,30 @@
           </header>
           <section class="modal-card-body">
             <!-- Content ... -->
+            <div class="field has-addons">
+              <div class="control">
+                <input class="input" type="text" placeholder="Enter Time">
+              </div>
+              <div class="control">
+                <a class="button is-success">
+                  Add Time
+                </a>
+              </div>
+            </div>
+            <div class="control">
+              <label class="radio">
+                <input type="radio" name="foobar">
+                AM
+              </label>
+              <label class="radio">
+                <input type="radio" name="foobar" checked>
+                PM
+              </label>
+            </div>
+          
           </section>
           <footer class="modal-card-foot">
             <button class="button is-success">Save</button>
-            <button class="button">Cancel</button>
           </footer>
         </div>
       </div>
@@ -107,7 +127,7 @@
   <footer class="footer">
     <div class="content has-text-centered">
       <p>
-        <strong>Wake Me Up!</strong> made through the blood sweat and tears of group 5. 
+        <strong>Wake Me Up!</strong> made with the blood sweat and tears of group 5. 
       </p>
     </div>
   </footer>
