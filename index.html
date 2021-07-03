@@ -14,7 +14,7 @@
 </head>
 
 <body>
-  <section class="hero is-danger is-medium">
+  <section class="hero is-success is-medium">
     <!-- Hero head: will stick at the top -->
     <div class="hero-head">
       <nav class="navbar">
@@ -49,11 +49,6 @@
         <p class="title">
           Wake Me Up
         </p>
-        <p class="subtitle">
-          If you are absolutely atrocious at waking up and want to take the first step to not setting 10+ alarms. Good news! Wake Me Up, is designed for you, the heavy sleeper!
-          Our team of grade A web developers have created a state of the art alarm, using the fine arts of Swedish Black Metal, and real time weather. To bring you the one and 
-          only alarm you will ever need! 
-        </p>
       </div>
     </div>
   
@@ -73,20 +68,20 @@
 
   <div class="container is-mobile">
     <div class="notification is-primary">
-      This container is <strong>centered</strong> on desktop and larger
-      viewports.
+      If you are <strong>atrocious</strong> at waking up and want to take the first step to not setting 10+ alarms. Good news! Wake Me Up, is designed for you, the heavy sleeper!
+      Our team of grade A web developers have created a state of the art alarm, using the fine arts of Swedish Black Metal, and real time weather. To bring you the one and 
+      only alarm you will ever need! 
     </div>
   </div>
   <div class="columns">
-    <!--Audio Control-->
-    <div class="audioColumn">
+    <div class="column" id="timeset">
         1<audio controls autoplay>
           <source src="https://cdns-preview-2.dzcdn.net/stream/c-203ac66db3ac00f8d1e96343a8739655-2.mp3" />
           Your browser does not support the audio element.
         </audio>
       </div>
-
-    <div class="centerColumn">2</div>
+      <!-- <button class="button is-danger is-large is-fullwidth is-rounded is-focused">STOP ALARM</button> -->
+    <div class="column" id="weather-tab">2</div>
   </div>
   <!--Footer-->
   <footer class="footer">
