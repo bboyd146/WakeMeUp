@@ -1,7 +1,12 @@
 body {
-  font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+  font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
 }
 
-.column {
+.audioColumn {
   flex-wrap: wrap;
+  background-color: blue;
+}
+
+.centerColumn {
+  background-color: blueviolet;
 }

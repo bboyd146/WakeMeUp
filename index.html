@@ -14,45 +14,62 @@
 </head>
 
 <body>
-  <nav class="navbar is-dark" role="navigation" aria-label="main navigation">
-    <div class="navbar-brand">
-      <a class="navbar-item" href="https://bulma.io">
-        <img src="https://bulma.io/images/bulma-logo.png" width="112" height="28" />
-      </a>
-
-      <a role="button" class="navbar-burger" aria-label="menu" aria-expanded="false" data-target="navbarBasicExample">
-        <span aria-hidden="true"></span>
-        <span aria-hidden="true"></span>
-        <span aria-hidden="true"></span>
-      </a>
-    </div>
-
-    <div id="navbarBasicExample" class="navbar-menu">
-      <div class="navbar-start">
-        <a class="navbar-item"> Weather </a>
-
-        <div class="navbar-item has-dropdown is-hoverable">
-          <a class="navbar-link"> More </a>
-
-          <div class="navbar-dropdown">
-            <a class="navbar-item"> Creators </a>
-            <a class="navbar-item"> Contact Us! </a>
+  <section class="hero is-danger is-medium">
+    <!-- Hero head: will stick at the top -->
+    <div class="hero-head">
+      <nav class="navbar">
+        <div class="container">
+          <div class="navbar-brand">
+            <span class="navbar-burger" data-target="navbarMenuHeroA">
+              <span></span>
+              <span></span>
+              <span></span>
+            </span>
+          </div>
+          <div id="navbarMenuHeroA" class="navbar-menu">
+            <div class="navbar-end">
+              <a class="navbar-item is-active">
+                Set Alarm
+              </a>
+              <a class="navbar-item">
+                Weather
+              </a>
+              <a class="navbar-item">
+                Documentation
+              </a>
+            </div>
           </div>
         </div>
-      </div>
-
-      <div class="navbar-end">
-        <div class="navbar-item">
-          <div class="buttons">
-            <a class="button is-primary">
-              <strong>Sign up</strong>
-            </a>
-            <a class="button is-light"> Log in </a>
-          </div>
-        </div>
+      </nav>
+    </div>
+  
+    <!-- Hero content: will be in the middle -->
+    <div class="hero-body">
+      <div class="container has-text-centered">
+        <p class="title">
+          Wake Me Up
+        </p>
+        <p class="subtitle">
+          If you are absolutely atrocious at waking up and want to take the first step to not setting 10+ alarms. Good news! Wake Me Up, is designed for you, the heavy sleeper!
+          Our team of grade A web developers have created a state of the art alarm, using the fine arts of Swedish Black Metal, and real time weather. To bring you the one and 
+          only alarm you will ever need! 
+        </p>
       </div>
     </div>
-  </nav>
+  
+    <!-- Hero footer: will stick at the bottom -->
+    <div class="hero-foot">
+      <nav class="tabs">
+        <div class="container">
+          <ul>
+            <li class="is-active"><a>Overview</a></li>
+            <li><a>About Us</a></li>
+            <li><a href='https://github.com/bboyd146/WakeMeUp'>Github</a></li>
+          </ul>
+        </div>
+      </nav>
+    </div>
+  </section>
 
   <div class="container is-mobile">
     <div class="notification is-primary">
@@ -70,13 +87,17 @@
       <!-- <button class="button is-danger is-large is-fullwidth is-rounded is-focused">STOP ALARM</button> -->
     <div class="column" id="weather-tab">2</div>
   </div>
-  <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"
-    integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj"
-    crossorigin="anonymous"></script>
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.29.1/moment.min.js"
-    integrity="sha512-qTXRIMyZIFb8iQcfjXWCO8+M5Tbc38Qi5WzdPOYZHIlZpzBHG3L3by84BBBOiRGiEb7KKtAOAs5qYdUiZiQNNQ=="
-    crossorigin="anonymous" referrerpolicy="no-referrer"></script>
-  <script src="./Assets/js/script.js"></script>
-</body>
+  <!--Footer-->
+  <footer class="footer">
+    <div class="content has-text-centered">
+      <p>
+        <strong>Wake Me Up!</strong> made through the blood sweat and tears of group 5. 
+      </p>
+    </div>
+  </footer>
 
+    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj"crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.29.1/moment.min.js" integrity="sha512-qTXRIMyZIFb8iQcfjXWCO8+M5Tbc38Qi5WzdPOYZHIlZpzBHG3L3by84BBBOiRGiEb7KKtAOAs5qYdUiZiQNNQ==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+    <script src="./Assets/js/script.js"></script>
+  </body>
 </html>
