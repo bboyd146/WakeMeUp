@@ -2,28 +2,11 @@ body {
   font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
 }
 
-<<<<<<< HEAD
-.navbar-brand {
-  justify-content: center;
-}
-
-h1 {
-  color: rgb(241, 70, 104);
-}
-
-.footer {
-  padding: 30px;
-  clear: both;
-  font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
-  text-align: center;
-}
-
-.footer h2 {
-  font-size: 20px;
-}
-
-=======
-.column {
+.audioColumn {
   flex-wrap: wrap;
+  background-color: blue;
 }
->>>>>>> f89fea35f3592ec0722a7a5ae3a3a54665f70419
+
+.centerColumn {
+  background-color: blueviolet;
+}
