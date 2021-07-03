@@ -1,3 +1,9 @@
+// Grabbing ids of elements to insert data
+var alarmSet = $('#timeset');
+var currentW = $('#weather-tab');
+
+// Var to display current date and time
+var rightNow = moment().format("dddd, MMMM Do YYYY, h:mm:ss a");
 
 // Weather API
 var weatherKey = "259bd6474c5faa56865476f0e7617266";
@@ -43,3 +49,5 @@ fetch("https://deezerdevs-deezer.p.rapidapi.com/playlist/1699332611", {
 .then(function (data) {
     console.log(data);
 })
+// code for stop alarm button
+{/* <button class="button is-danger is-large is-fullwidth is-rounded is-focused">STOP ALARM</button> */}
