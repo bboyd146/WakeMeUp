@@ -10,3 +10,7 @@ body {
 .centerColumn {
   background-color: blueviolet;
 }
+
+.modal {
+  display: none;
+}
