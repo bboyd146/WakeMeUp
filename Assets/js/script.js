@@ -1,9 +1,18 @@
 // Grabbing ids of elements to insert data
 var alarmSet = $('#timeset');
 var currentW = $('#weather-tab');
+var headerTitle = $('span');
 
 // Var to display current date and time
-var rightNow = moment().format("dddd, MMMM Do YYYY, h:mm:ss a");
+var momentHead = moment().format("dddd, MMMM Do YYYY, h:mm A");
+var momentAlarm = moment().format("h:mm A");
+var momentWeathr = moment().format("dddd, MMMM Do YYYY");
+console.log(momentHead);
+console.log(momentAlarm);
+console.log(momentWeathr);
+
+// inserting moment in elements
+headerTitle.text(momentHead);
 
 // Weather API
 var weatherKey = "259bd6474c5faa56865476f0e7617266";
