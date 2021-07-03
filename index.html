@@ -28,10 +28,10 @@
           </div>
           <div id="navbarMenuHeroA" class="navbar-menu">
             <div class="navbar-end">
-              <a class="navbar-item is-active" id="setAlarm">
+              <a class="navbar-item" id="setAlarm">
                 Set Alarm
               </a>
-              <a class="navbar-item">
+              <a class="navbar-item" id="setWeather">
                 Weather
               </a>
               <a class="navbar-item">
@@ -68,7 +68,7 @@
   </section>
 
   <div class="container is-mobile">
-    <div class="notification is-primary">
+    <div class="notification is-dark">
       If you are <strong>atrocious</strong> at waking up and want to take the first step to not setting 10+ alarms. Good news! Wake Me Up, is designed for you, the heavy sleeper!
       Our team of grade A web developers have created a state of the art alarm, using the fine arts of Swedish Black Metal, and real time weather. To bring you the one and 
       only alarm you will ever need! 
@@ -112,6 +112,37 @@
               </label>
             </div>
           
+          </section>
+          <footer class="modal-card-foot">
+            <button class="button is-success">Save</button>
+          </footer>
+        </div>
+      </div>
+    
+      <!--Weather Modal (one bug, not centering)-->
+      <div class="modal2">
+        <div class="modal-background"></div>
+        <div class="modal-card">
+          <header class="modal-card-head">
+            <p class="modal-card-title">Weather</p>
+            <button class="delete" aria-label="close" id="deleteWeather"></button>
+          </header>
+          <section class="modal-card-body">
+            <!--Weather Modal Needs to be centered.-->
+            <figure class="image is-128x128">
+              <img class="is-rounded" src="https://bulma.io/images/placeholders/128x128.png">
+            </figure>
+            <!-- Content ... -->
+            <div class="field has-addons">
+              <div class="control">
+                <input class="input" type="text" placeholder="Enter Your City">
+              </div>
+              <div class="control">
+                <a class="button is-success">
+                  Save City
+                </a>
+              </div>
+            </div>
           </section>
           <footer class="modal-card-foot">
             <button class="button is-success">Save</button>

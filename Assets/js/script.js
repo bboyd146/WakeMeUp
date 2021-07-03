@@ -70,3 +70,14 @@ $("#setAlarm").on("click", function(){
 $(".delete").on("click", function(){
     modal.hide();
 }); 
+
+// Show Modal2//
+var modal2 = $(".modal2")
+
+$("#setWeather").on("click", function(){
+    modal2.show();
+});
+$("#deleteWeather").on("click", function(){
+    modal2.hide();
+});
+
