@@ -1,7 +1,7 @@
 // Grabbing ids of elements to insert data
 var alarmSet = $('#timeset');
 var currentW = $('#weather-tab');
-var headerTitle = $('span');
+var headerTitle = $('#subtitle');
 
 // Var to display current date and time
 var momentHead = moment().format("dddd, MMMM Do YYYY, h:mm A");
@@ -20,7 +20,7 @@ var city = "houston";
 var weatherAPI = "https://api.openweathermap.org/data/2.5/weather?q=" + city + "&units=imperial&appid=" + weatherKey + "";
 
 {
-fetch(weatherAPI)
+    fetch(weatherAPI)
     .then(function (response) {
         return response.json();
     })
@@ -61,12 +61,3 @@ fetch("https://deezerdevs-deezer.p.rapidapi.com/playlist/1699332611", {
 // code for stop alarm button
 {/* <button class="button is-danger is-large is-fullwidth is-rounded is-focused">STOP ALARM</button> */}
 
-//Show Modal//
-var modal = $(".modal");
-
-$("#setAlarm").on("click", function(){
-    modal.show();
-});
-$(".delete").on("click", function(){
-    modal.hide();
-});
