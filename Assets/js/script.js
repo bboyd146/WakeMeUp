@@ -3,6 +3,7 @@ var alarmSet = $('#timeset');
 var currentW = $('#weather-tab');
 var headerTitle = $('#subtitle');
 
+
 // Var to display current date and time
 var momentHead = moment().format("dddd, MMMM Do YYYY, h:mm A");
 var momentAlarm = moment().format("h:mm A");
@@ -26,6 +27,13 @@ var weatherAPI = "https://api.openweathermap.org/data/2.5/weather?q=" + city + "
     })
     .then(function (data) {
         console.log(data);
+
+        // var tempCurrent = data.current.temp;
+        // var humidityCurrent = data.current.humidity;
+        // var uviCurrent = data.current.uvi;
+        // var windSpeedCurrent = data.current.wind_speed;
+        // var tempIcon = data.current.weather[0].icon;
+        // console.log({tempCurrent, humidityCurrent, uviCurrent, windSpeedCurrent, tempIcon});
     })
 }
 
@@ -62,11 +70,21 @@ fetch("https://deezerdevs-deezer.p.rapidapi.com/playlist/1699332611", {
 {/* <button class="button is-danger is-large is-fullwidth is-rounded is-focused">STOP ALARM</button> */}
 
 //Show Modal//
-var modal = $(".modal");
+var modal1 = $("#alarm-modal");
 
 $("#setAlarm").on("click", function(){
-    modal.show();
+    modal1.show();
 });
 $(".delete").on("click", function(){
-    modal.hide();
+    modal1.hide();
+}); 
+
+// Show City Modal
+var modal2 = $("#city-modal");
+
+$("#setCity").on("click", function(){
+    modal2.show();
+});
+$(".delete").on("click", function(){
+    modal2.hide();
 }); 
