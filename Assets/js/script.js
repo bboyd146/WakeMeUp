@@ -1,7 +1,11 @@
 // Grabbing ids of elements to insert data
-var alarmSet = $('#timeset');
+var alarmSet = $('#pastAlarms');
 var currentW = $('#weather-tab');
 var headerTitle = $('#subtitle');
+// modal ids
+var userAlarms = $("#timeset").val();
+
+
 
 
 // Var to display current date and time
@@ -15,11 +19,13 @@ console.log(momentWeathr);
 // inserting moment in elements
 headerTitle.text(momentHead);
 
+$('#save-city').on('click', function (event) {
+    event.preventDefault();
 // Weather API
 var weatherKey = "259bd6474c5faa56865476f0e7617266";
 var city = "houston";
-var weatherAPI = "https://api.openweathermap.org/data/2.5/weather?q=" + city + "&units=imperial&appid=" + weatherKey + "";
-
+var userCity = $('#cityset').val();
+var weatherAPI = "https://api.openweathermap.org/data/2.5/weather?q=" + userCity + "&units=imperial&appid=" + weatherKey + "";
 {
     fetch(weatherAPI)
     .then(function (response) {
@@ -36,7 +42,7 @@ var weatherAPI = "https://api.openweathermap.org/data/2.5/weather?q=" + city + "
         // console.log({tempCurrent, humidityCurrent, uviCurrent, windSpeedCurrent, tempIcon});
     })
 }
-
+})
 //Deezer API - Track
 fetch("https://deezerdevs-deezer.p.rapidapi.com/track/1109737", {
 "method": "GET",

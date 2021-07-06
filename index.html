@@ -75,7 +75,7 @@
     </div>
   </div>
   <div class="columns">
-    <div class="column" id="timeset">
+    <div class="column" id="pastAlarms">
         1<audio controls autoplay>
           <source src="https://cdns-preview-2.dzcdn.net/stream/c-203ac66db3ac00f8d1e96343a8739655-2.mp3" />
           Your browser does not support the audio element.
@@ -93,7 +93,7 @@
             <!-- Content ... -->
             <div class="field has-addons">
               <div class="control">
-                <input class="input" type="text" placeholder="Enter Time">
+                <input class="input"  id="timeset" type="text" placeholder="Enter Time">
               </div>
               <div class="control">
                 <a class="button is-success">
@@ -114,7 +114,7 @@
           
           </section>
           <footer class="modal-card-foot">
-            <button class="button is-success">Save</button>
+            <button class="button is-success" id="save-time">Save</button>
           </footer>
         </div>
       </div>
@@ -131,7 +131,7 @@
             <!-- Content ... -->
             <div class="field has-addons">
               <div class="control">
-                <input class="input" type="text" placeholder="Enter City">
+                <input class="input" id="cityset" type="text" placeholder="Enter City">
               </div>
               <div class="control">
                 <a class="button is-success">
@@ -144,7 +144,7 @@
           
           </section>
           <footer class="modal-card-foot">
-            <button class="button is-success">Save</button>
+            <button class="button is-success" id="save-city">Save</button>
           </footer>
         </div>
       </div>
