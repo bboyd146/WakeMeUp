@@ -19,6 +19,17 @@ var weatherKey = "259bd6474c5faa56865476f0e7617266";
 var city = "houston";
 var weatherAPI = "https://api.openweathermap.org/data/2.5/weather?q=" + city + "&units=imperial&appid=" + weatherKey + "";
 
+//function to display the current weather and forecast
+function render(data2) {
+    var currentCity = document.createElement("h3")
+    currentCity.innerText = myCity + " + "
+    var currentDate = document.createElement("span")
+    currentDate.innerText = moment().format(momentWeathr)
+    currentCity.appendChild(currentDate)
+    var currentWeather = document.createElement("p")
+    currentWeather.innerText = "temp: " + data2.current.temp +" ˚F"
+}
+
 {
     fetch(weatherAPI)
     .then(function (response) {
@@ -26,6 +37,27 @@ var weatherAPI = "https://api.openweathermap.org/data/2.5/weather?q=" + city + "
     })
     .then(function (data) {
         console.log(data);
+        var lon = data.coord.lon;
+        var lat = data.coord.lat;
+        console.log({lon, lat});
+        var dataWeatherAPI = "https://api.openweathermap.org/data/2.5/onecall?lat=" + lat + "&lon=" + lon + "&units=imperial&exclude=minutely,hourly,alerts&appid=" + weatherKey + "";
+        fetch(dataWeatherAPI)
+            .then(function (response) {
+                return response.json();
+            })
+            
+            .then(function (data2) {
+                console.log(data2);
+                var arr = [];
+                for (let index = 1; index < 6; index++) {
+                    var day = data2.daily[index];
+                    var obj = {
+                        temp: day.temp.day
+                    }
+                    arr.push(obj)
+                    console.log({obj});
+                }
+            })
     })
 }
 
