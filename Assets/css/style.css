@@ -11,7 +11,11 @@ body {
   background-color: blueviolet;
 }
 
-.modal {
+.modal1 {
+  display: none;
+}
+
+.modal2 {
   display: none;
 }
 
