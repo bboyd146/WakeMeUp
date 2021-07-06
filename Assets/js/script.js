@@ -12,19 +12,19 @@ var userAlarms = $("#timeset").val();
 var momentHead = moment().format("dddd, MMMM Do YYYY, h:mm A");
 var momentAlarm = moment().format("h:mm A");
 var momentWeathr = moment().format("dddd, MMMM Do YYYY");
-console.log(momentHead);
-console.log(momentAlarm);
-console.log(momentWeathr);
+
 
 // inserting moment in elements
 headerTitle.text(momentHead);
 
-$('#save-city').on('click', function (event) {
-    event.preventDefault();
-// Weather API
-var weatherKey = "259bd6474c5faa56865476f0e7617266";
-var city = "houston";
-var userCity = $('#cityset').val();
+// Function to search for city weather based on weather
+$('#add-city').on('click', function () {
+    
+    // Weather API
+    var weatherKey = "259bd6474c5faa56865476f0e7617266";
+    var userCity = $('#cityset').val();
+    localStorage.setItem('City', userCity);
+
 var weatherAPI = "https://api.openweathermap.org/data/2.5/weather?q=" + userCity + "&units=imperial&appid=" + weatherKey + "";
 {
     fetch(weatherAPI)
@@ -75,7 +75,7 @@ fetch("https://deezerdevs-deezer.p.rapidapi.com/playlist/1699332611", {
 // code for stop alarm button
 {/* <button class="button is-danger is-large is-fullwidth is-rounded is-focused">STOP ALARM</button> */}
 
-//Show Modal//
+//Show Alarm Modal
 var modal1 = $("#alarm-modal");
 
 $("#setAlarm").on("click", function(){
@@ -94,3 +94,8 @@ $("#setCity").on("click", function(){
 $(".delete").on("click", function(){
     modal2.hide();
 }); 
+
+// Function to save inputs to local storage and hide modal
+function StoreAndHide () {
+
+}
