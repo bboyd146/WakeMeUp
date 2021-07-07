@@ -11,18 +11,11 @@ body {
   background-color: blueviolet;
 }
 
-.modal1 {
+.modal {
   display: none;
 }
 
-.modal2 {
-  display: none;
-}
-
-.modal2 {
-  display: none;
-}
-
-.modal3 {
-  display: none;
+span.tag.is-danger.is-large {
+  padding: 1rem;
+  margin: 1rem;
 }
