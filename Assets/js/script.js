@@ -154,5 +154,4 @@ $(".delete").on("click", function(){
 // Function to save inputs to local storage and hide modal
 function StoreAndHide() {
     localStorage.setItem('Alarm Time',)
-
 }
