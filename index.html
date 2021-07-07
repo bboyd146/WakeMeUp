@@ -93,21 +93,22 @@
             <!-- Content ... -->
             <div class="field has-addons">
               <div class="control">
-                <input class="input"  id="timeset" type="text" placeholder="Enter Time">
+                <input class="input" type="number" step="1" min="1" max="12" id="hours" name="hours" placeholder="Enter Hrs" />
+                <input class="input" type="number" step="1" min="0" max="59" id="minutes" name="minutes" placeholder="Enter Mins" />
               </div>
               <div class="control">
-                <a class="button is-success">
+                <a class="button is-success" id="add-time">
                   Add Time
                 </a>
               </div>
             </div>
             <div class="control">
               <label class="radio">
-                <input type="radio" name="foobar">
+                <input type="radio" name="foobar" id="am">
                 AM
               </label>
               <label class="radio">
-                <input type="radio" name="foobar" checked>
+                <input type="radio" name="foobar" id="pm">
                 PM
               </label>
             </div>
