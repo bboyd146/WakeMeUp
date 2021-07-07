@@ -1,23 +1,29 @@
 // Grabbing ids of elements to insert data
-var alarmSet = $('#timeset');
+var alarmSet = $('#pastAlarms');
 var currentW = $('#weather-tab');
 var headerTitle = $('#subtitle');
+// modal ids
+var userAlarms = $("#timeset").val();
+
+
+
 
 // Var to display current date and time
 var momentHead = moment().format("dddd, MMMM Do YYYY, h:mm A");
 var momentAlarm = moment().format("h:mm A");
 var momentWeathr = moment().format("dddd, MMMM Do YYYY");
-console.log(momentHead);
-console.log(momentAlarm);
-console.log(momentWeathr);
+
 
 // inserting moment in elements
 headerTitle.text(momentHead);
 
-// Weather API
-var weatherKey = "259bd6474c5faa56865476f0e7617266";
-var city = "houston";
-var weatherAPI = "https://api.openweathermap.org/data/2.5/weather?q=" + city + "&units=imperial&appid=" + weatherKey + "";
+// Function to search for city weather based on weather
+$('#add-city').on('click', function () {
+    
+    // Weather API
+    var weatherKey = "259bd6474c5faa56865476f0e7617266";
+    var userCity = $('#cityset').val();
+    localStorage.setItem('City', userCity);
 
 //function to display the current weather and forecast
 function render(data2) {
@@ -30,6 +36,7 @@ function render(data2) {
     currentWeather.innerText = "temp: " + data2.current.temp +" ˚F"
 }
 
+var weatherAPI = "https://api.openweathermap.org/data/2.5/weather?q=" + userCity + "&units=imperial&appid=" + weatherKey + "";
 {
     fetch(weatherAPI)
     .then(function (response) {
@@ -60,7 +67,7 @@ function render(data2) {
             })
     })
 }
-
+})
 //Deezer API - Track
 fetch("https://deezerdevs-deezer.p.rapidapi.com/track/1109737", {
 "method": "GET",
@@ -93,12 +100,27 @@ fetch("https://deezerdevs-deezer.p.rapidapi.com/playlist/1699332611", {
 // code for stop alarm button
 {/* <button class="button is-danger is-large is-fullwidth is-rounded is-focused">STOP ALARM</button> */}
 
-//Show Modal//
-var modal = $(".modal");
+//Show Alarm Modal
+var modal1 = $("#alarm-modal");
 
 $("#setAlarm").on("click", function(){
-    modal.show();
+    modal1.show();
 });
 $(".delete").on("click", function(){
-    modal.hide();
+    modal1.hide();
 }); 
+
+// Show City Modal
+var modal2 = $("#city-modal");
+
+$("#setCity").on("click", function(){
+    modal2.show();
+});
+$(".delete").on("click", function(){
+    modal2.hide();
+}); 
+
+// Function to save inputs to local storage and hide modal
+function StoreAndHide () {
+
+}
