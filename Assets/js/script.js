@@ -31,7 +31,7 @@ addTBtn.on('click', function () {
 })
 
 // Function to search for city weather based on weather
-$('#add-city').on('click', function () {
+// $('#add-city').on('click', function () {
 
     // Weather API
     //var weatherKey = "259bd6474c5faa56865476f0e7617266";
@@ -75,7 +75,6 @@ var weatherAPI = "https://api.openweathermap.org/data/2.5/weather?q=" + userCity
             })
             
             .then(function (data2) {
-               
                 console.log(data2);
                 
                 for (let index = 0; index < 5; index++) {
@@ -150,8 +149,3 @@ $("#aboutUs").on("click", function(){
 $(".delete").on("click", function(){
     modal3.hide();
 });
-
-// Function to save inputs to local storage and hide modal
-function StoreAndHide() {
-    localStorage.setItem('Alarm Time',)
-}
