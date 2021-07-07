@@ -25,6 +25,17 @@ $('#add-city').on('click', function () {
     var userCity = $('#cityset').val();
     localStorage.setItem('City', userCity);
 
+//function to display the current weather and forecast
+function render(data2) {
+    var currentCity = document.createElement("h3")
+    currentCity.innerText = myCity + " + "
+    var currentDate = document.createElement("span")
+    currentDate.innerText = moment().format(momentWeathr)
+    currentCity.appendChild(currentDate)
+    var currentWeather = document.createElement("p")
+    currentWeather.innerText = "temp: " + data2.current.temp +" ˚F"
+}
+
 var weatherAPI = "https://api.openweathermap.org/data/2.5/weather?q=" + userCity + "&units=imperial&appid=" + weatherKey + "";
 {
     fetch(weatherAPI)
@@ -33,13 +44,27 @@ var weatherAPI = "https://api.openweathermap.org/data/2.5/weather?q=" + userCity
     })
     .then(function (data) {
         console.log(data);
-
-        // var tempCurrent = data.current.temp;
-        // var humidityCurrent = data.current.humidity;
-        // var uviCurrent = data.current.uvi;
-        // var windSpeedCurrent = data.current.wind_speed;
-        // var tempIcon = data.current.weather[0].icon;
-        // console.log({tempCurrent, humidityCurrent, uviCurrent, windSpeedCurrent, tempIcon});
+        var lon = data.coord.lon;
+        var lat = data.coord.lat;
+        console.log({lon, lat});
+        var dataWeatherAPI = "https://api.openweathermap.org/data/2.5/onecall?lat=" + lat + "&lon=" + lon + "&units=imperial&exclude=minutely,hourly,alerts&appid=" + weatherKey + "";
+        fetch(dataWeatherAPI)
+            .then(function (response) {
+                return response.json();
+            })
+            
+            .then(function (data2) {
+                console.log(data2);
+                var arr = [];
+                for (let index = 1; index < 6; index++) {
+                    var day = data2.daily[index];
+                    var obj = {
+                        temp: day.temp.day
+                    }
+                    arr.push(obj)
+                    console.log({obj});
+                }
+            })
     })
 }
 })
