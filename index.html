@@ -28,14 +28,14 @@
           </div>
           <div id="navbarMenuHeroA" class="navbar-menu">
             <div class="navbar-end">
-              <a class="navbar-item is-active" id="setAlarm">
+              <a class="navbar-item" id="setAlarm">
                 Set Alarm
               </a>
               <a class="navbar-item" id="setCity">
                 Weather
               </a>
-              <a class="navbar-item">
-                Documentation
+              <a class="navbar-item" id="aboutUs">
+                About Us
               </a>
             </div>
           </div>
@@ -59,21 +59,24 @@
         <div class="container">
           <ul>
             <li class="is-active"><a>Overview</a></li>
-            <li><a>About Us</a></li>
+            <li><a>Documentation</a></li>
             <li><a href='https://github.com/bboyd146/WakeMeUp'>Github</a></li>
           </ul>
         </div>
       </nav>
     </div>
   </section>
-
-  <div class="container is-mobile">
-    <div class="notification is-primary">
-      If you are <strong>atrocious</strong> at waking up and want to take the first step to not setting 10+ alarms. Good news! Wake Me Up, is designed for you, the heavy sleeper!
-      Our team of grade A web developers have created a state of the art alarm, using the fine arts of Swedish Black Metal, and real time weather. To bring you the one and 
-      only alarm you will ever need! 
+  
+  <section class="hero is-small is-dark has-text-centered">
+    <div class="hero-body">
+      <p class="subtitle">
+        If you are <strong>atrocious</strong> at waking up and want to take the first step to not setting 10+ alarms. Good news! Wake Me Up, is designed for you, the heavy sleeper!
+        Our team of grade A web developers have created a state of the art alarm, using the fine arts of Swedish Black Metal, and real time weather. To bring you the one and 
+        only alarm you will ever need! 
+        </p>
     </div>
-  </div>
+  </section>
+
   <div class="columns">
     <div class="column" id="pastAlarms">
         1<audio controls autoplay>
@@ -111,7 +114,6 @@
                 PM
               </label>
             </div>
-          
           </section>
           <footer class="modal-card-foot">
             <button class="button is-success" id="save-time">Save</button>
@@ -139,20 +141,46 @@
                 </a>
               </div>
             </div>
-            
-          
-          
-          </section>
+            </section>
           <footer class="modal-card-foot">
             <button class="button is-success" id="save-city">Save</button>
           </footer>
         </div>
       </div>
+
+      <!--About Us modal-->
+      <div class="modal3" id="about-us-modal">
+        <div class="modal-background"></div>
+        <div class="modal-card">
+          <header class="modal-card-head">
+            <p class="modal-card-title">About Us</p>
+            <button class="delete" aria-label="close"></button>
+          </header>
+          <section class="modal-card-body">
+            <!-- Content ... -->
+            <div class="content">
+              <h1>About The Team</h1> 
+              <p>Wake Me Up! Is made of 3 aspiring web developers, Bradley Boyd, Salvador Diaz, and Liam Rumgay.
+                We are all currently enrolled into a web development course, Rice University Boot Camp. While this is our first project 
+              we are always striving for better as well as consistently looking for ways to refine ourselves. Please take a look at our GitHub accounts,
+            and most importantly, please enjoy our application! </p>
+            </div>
+            </section>
+          <footer class="modal-card-foot has-text-centered">
+            <button class="button is-dark" id="save-city"><a href='https://github.com/bboyd146'>Bradley Boyd</a></button>
+            <button class="button is-dark" id="save-city"><a href='https://github.com/salvadordiaz1222'>Salvador Diaz</a></button>
+            <button class="button is-dark" id="save-city"><a href='https://github.com/LRumgay'>Liam Rumgay</a></button>
+          </footer>
+        </div>
+      </div>
+      
       
       <!-- <button class="button is-danger is-large is-fullwidth is-rounded is-focused">STOP ALARM</button> -->
     <div class="column" id="weather-tab">2</div>
     </div>
-  <!--Footer-->
+  
+  
+    <!--Footer-->
   <footer class="footer">
     <div class="content has-text-centered">
       <p>
