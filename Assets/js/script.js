@@ -11,32 +11,40 @@ var userAlarms = $("#timeset").val();
 // Var to display current date and time
 var momentHead = moment().format("dddd, MMMM Do YYYY, h:mm A");
 var momentAlarm = moment().format("h:mm A");
-var momentWeathr = moment().format("dddd, MMMM Do YYYY");
+var momentWeathr = "dddd, MMMM Do YYYY";
 
 
 // inserting moment in elements
 headerTitle.text(momentHead);
 
 // Function to search for city weather based on weather
-$('#add-city').on('click', function () {
+//$('#add-city').on('click', function () {
     
     // Weather API
-    var weatherKey = "259bd6474c5faa56865476f0e7617266";
-    var userCity = $('#cityset').val();
-    localStorage.setItem('City', userCity);
+    //var weatherKey = "259bd6474c5faa56865476f0e7617266";
+    //var userCity = "Houston"
+    //$('#cityset').val();
+    //localStorage.setItem('City', userCity);
 
 //function to display the current weather and forecast
-function render(data2) {
+function render(data3) {
     var currentCity = document.createElement("h3")
-    currentCity.innerText = myCity + " + "
+    currentCity.innerText = userCity + " "
     var currentDate = document.createElement("span")
-    currentDate.innerText = moment().format(momentWeathr)
+    currentDate.innerText = moment().add("days").format(momentWeathr)
     currentCity.appendChild(currentDate)
     var currentWeather = document.createElement("p")
-    currentWeather.innerText = "temp: " + data2.current.temp +" ˚F"
+    currentWeather.innerText = "temp: " + data3.temp +" ˚F"
+    var root = document.getElementById("weather-tab")
+    root.appendChild(currentCity)
+    root.appendChild(currentDate)
+    root.appendChild(currentWeather)
 }
 
+var weatherKey = "259bd6474c5faa56865476f0e7617266";
+var userCity = "Houston";
 var weatherAPI = "https://api.openweathermap.org/data/2.5/weather?q=" + userCity + "&units=imperial&appid=" + weatherKey + "";
+
 {
     fetch(weatherAPI)
     .then(function (response) {
@@ -54,20 +62,20 @@ var weatherAPI = "https://api.openweathermap.org/data/2.5/weather?q=" + userCity
             })
             
             .then(function (data2) {
+               
                 console.log(data2);
-                var arr = [];
-                for (let index = 1; index < 6; index++) {
+                
+                for (let index = 0; index < 5; index++) {
                     var day = data2.daily[index];
                     var obj = {
                         temp: day.temp.day
                     }
-                    arr.push(obj)
-                    console.log({obj});
+                    render(obj)
                 }
             })
     })
 }
-})
+
 //Deezer API - Track
 fetch("https://deezerdevs-deezer.p.rapidapi.com/track/1109737", {
 "method": "GET",
