@@ -8,7 +8,7 @@ body {
 }
 
 .centerColumn {
-  background-color: rgb(144, 91, 194);
+  background-color: blueviolet;
 }
 
 .modal1 {
@@ -64,7 +64,7 @@ body {
  
 /* Handle */
 ::-webkit-scrollbar-thumb {
-  background:rgb(54, 54, 54) ; 
+  background: #888;
 }
 
 /* Handle on hover */
