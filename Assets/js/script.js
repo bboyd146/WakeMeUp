@@ -95,6 +95,16 @@ $(".delete").on("click", function(){
     modal2.hide();
 }); 
 
+// Show About Us Modal
+var modal3 = $("#about-us-modal");
+
+$("#aboutUs").on("click", function(){
+    modal3.show();
+});
+$(".delete").on("click", function(){
+    modal3.hide();
+});
+
 // Function to save inputs to local storage and hide modal
 function StoreAndHide () {
 
