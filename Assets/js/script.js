@@ -2,26 +2,41 @@
 var alarmSet = $('#pastAlarms');
 var currentW = $('#weather-tab');
 var headerTitle = $('#subtitle');
+var songEl = $('#music');
 // modal ids
 var amSet = $('#am');
 var pmSet = $('#pm');
 var addTBtn = $('#add-time');
+var userHrs = $("#hours").val();
+console.log(userHrs);
+var userMins = $('#minutes').val();
+
 
 // Var to display current date and time
 var momentHead = moment().format("dddd, MMMM Do YYYY, h:mm A");
 var momentAlarm = moment().format("h:mm A");
 var momentWeathr = "dddd, MMMM Do YYYY";
+var currentHr = parseInt(moment().format('h hh'));
+console.log(currentHr);
+var currentMn = parseInt(moment().format('m mm'));
+console.log(currentMn);
+
+// var a = parseInt(userHrs);
+// var b = parseInt(userMins)
+// console.log(a);
+// console.log(b);
+
 
 
 // inserting moment in elements
 headerTitle.text(momentHead);
 
-var savedTimes = localStorage.getItem('Alarm Set');
-if (savedTimes !== null) {
-writeAlarms();
-}
+// var savedTimes = localStorage.getItem('Alarm Set');
+// if (savedTimes !== null) {
+// writeAlarms();
+// }
 
-
+displaySavedAlarms();
 
 // call-back  function to close modals
 addTBtn.on('click', writeAlarms)
@@ -32,20 +47,56 @@ function writeAlarms() {
     var amOrpm = $('input[name="foobar"]:checked').parent('label').text();
     var setAP = userHrs + ":" + userMins + " " + amOrpm;
     localStorage.setItem('Alarm Set', setAP);
-    for (var i = 0; i < localStorage.length; i++){
+    // for (var i = 0; i < localStorage.length; i++){
+    //     var alarmLi = $('<div>');
+    //     var alarmSpan = $('<span>');
+    //     var alarmBtn = $('<button>');
+    //     alarmLi.addClass('m-auto p-auto');
+    //     alarmSpan.addClass('tag is-danger is-large');
+    //     alarmBtn.addClass('delete');
+    //     // alarmSpan.text('Delete');
+
+    // alarmLi.append(localStorage.getItem(localStorage.key(i)));
+    // alarmSpan.append(alarmBtn);
+    // alarmLi.append(alarmSpan);
+    // alarmSet.append(alarmLi);
+    displaySavedAlarms();
+}
+
+// function playpause() {
+//     if (songEl.paused) {
+//       songEl.play();
+//     } else {
+//       songEl.pause();
+//     }
+//   }
+
+function displaySavedAlarms() {
+    for (var i = 0; i < localStorage.length; i++) {
         var alarmLi = $('<div>');
         var alarmSpan = $('<span>');
         var alarmBtn = $('<button>');
         alarmLi.addClass('m-auto p-auto');
         alarmSpan.addClass('tag is-danger is-large');
         alarmBtn.addClass('delete');
-        // alarmSpan.text('Delete');
 
         alarmLi.append(localStorage.getItem(localStorage.key(i)));
         alarmSpan.append(alarmBtn);
         alarmLi.append(alarmSpan);
         alarmSet.append(alarmLi);
 
+        var a = parseInt($("#minutes").val());
+        var b = parseInt($("#hours").val())
+        console.log($("#hours").val());
+        console.log(a);
+        console.log(b);
+
+        if (b === currentHr && a === currentMn) {
+            console.log('it worked');
+            songEl.play()
+            
+            
+        }
     }
 }
 
@@ -53,12 +104,12 @@ function writeAlarms() {
 // function init() {
 //     // Get stored todos from localStorage
 //     var storedTodos = localStorage.getItem(localStorage.key(i));
-  
+
 //     // If todos were retrieved from localStorage, update the todos array to it
 //     if (storedTodos !== null) {
 //       alarmSet = storedTodos;
 //     }
-  
+
 //     // This is a helper function that will render todos to the DOM
 //     renderTodos();
 //   }
@@ -81,7 +132,7 @@ function render(data3) {
     var currentDate = document.createElement("span")
     currentDate.innerText = moment.unix(data3.date).format(momentWeathr)
     var currentWeather = document.createElement("p")
-    currentWeather.innerText = "temp: " + data3.temp +" ˚F"
+    currentWeather.innerText = "temp: " + data3.temp + " ˚F"
     var root = document.getElementById("weather-tab")
     root.appendChild(currentDate)
     root.appendChild(currentWeather)
@@ -92,33 +143,33 @@ var weatherKey = "259bd6474c5faa56865476f0e7617266";
 function setWeather(x) {
     var weatherAPI = "https://api.openweathermap.org/data/2.5/weather?q=" + x + "&units=imperial&appid=" + weatherKey + "";
     fetch(weatherAPI)
-    .then(function (response) {
-        return response.json();
-    })
-    .then(function (data) {
-        console.log(data);
-        var lon = data.coord.lon;
-        var lat = data.coord.lat;
-        console.log({lon, lat});
-        var dataWeatherAPI = "https://api.openweathermap.org/data/2.5/onecall?lat=" + lat + "&lon=" + lon + "&units=imperial&exclude=minutely,hourly,alerts&appid=" + weatherKey + "";
-        fetch(dataWeatherAPI)
         .then(function (response) {
             return response.json();
         })
-        
-        .then(function (data2) {
-            console.log(data2);
-            
-            for (let index = 0; index < 5; index++) {
-                var day = data2.daily[index];
-                var obj = {
-                    temp: day.temp.day,
-                    date: day.dt
-                }
-                render(obj)
-            }
+        .then(function (data) {
+            console.log(data);
+            var lon = data.coord.lon;
+            var lat = data.coord.lat;
+            console.log({ lon, lat });
+            var dataWeatherAPI = "https://api.openweathermap.org/data/2.5/onecall?lat=" + lat + "&lon=" + lon + "&units=imperial&exclude=minutely,hourly,alerts&appid=" + weatherKey + "";
+            fetch(dataWeatherAPI)
+                .then(function (response) {
+                    return response.json();
+                })
+
+                .then(function (data2) {
+                    console.log(data2);
+
+                    for (let index = 0; index < 5; index++) {
+                        var day = data2.daily[index];
+                        var obj = {
+                            temp: day.temp.day,
+                            date: day.dt
+                        }
+                        render(obj)
+                    }
+                })
         })
-    })
 }
 
 //Deezer API - Track
@@ -129,12 +180,12 @@ fetch("https://deezerdevs-deezer.p.rapidapi.com/track/1109737", {
         "x-rapidapi-host": "deezerdevs-deezer.p.rapidapi.com"
     }
 })
-.then(function (response) {
-    return response.json()
-})
-.then(function (data) {
-    console.log(data);
-})
+    .then(function (response) {
+        return response.json()
+    })
+    .then(function (data) {
+        console.log(data);
+    })
 
 //Deezer API - Playlist
 fetch("https://deezerdevs-deezer.p.rapidapi.com/playlist/1699332611", {
@@ -144,12 +195,12 @@ fetch("https://deezerdevs-deezer.p.rapidapi.com/playlist/1699332611", {
         "x-rapidapi-host": "deezerdevs-deezer.p.rapidapi.com"
     }
 })
-.then(function (response) {
-    return response.json()
-})
-.then(function (data) {
-    console.log(data);
-})
+    .then(function (response) {
+        return response.json()
+    })
+    .then(function (data) {
+        console.log(data);
+    })
 // code for stop alarm button
 {/* <button class="button is-danger is-large is-fullwidth is-rounded is-focused">STOP ALARM</button> */ }
 
@@ -177,9 +228,9 @@ $(".delete").on("click", function () {
 // Show About Us Modal
 var modal3 = $("#about-us-modal");
 
-$("#aboutUs").on("click", function(){
+$("#aboutUs").on("click", function () {
     modal3.show();
 });
-$(".delete").on("click", function(){
+$(".delete").on("click", function () {
     modal3.hide();
 });
