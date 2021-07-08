@@ -16,8 +16,16 @@ var momentWeathr = "dddd, MMMM Do YYYY";
 // inserting moment in elements
 headerTitle.text(momentHead);
 
+var savedTimes = localStorage.getItem('Alarm Set');
+if (savedTimes !== null) {
+writeAlarms();
+}
+
+
+
 // call-back  function to close modals
-addTBtn.on('click', function () {
+addTBtn.on('click', writeAlarms)
+function writeAlarms() {
 
     var userHrs = $("#hours").val();
     var userMins = $('#minutes').val();
@@ -39,20 +47,23 @@ addTBtn.on('click', function () {
         alarmSet.append(alarmLi);
 
     }
-})
+}
+
+// // This function is being called below and will run when the page loads.
+// function init() {
+//     // Get stored todos from localStorage
+//     var storedTodos = localStorage.getItem(localStorage.key(i));
+  
+//     // If todos were retrieved from localStorage, update the todos array to it
+//     if (storedTodos !== null) {
+//       alarmSet = storedTodos;
+//     }
+  
+//     // This is a helper function that will render todos to the DOM
+//     renderTodos();
+//   }
 
 
-
-
-// Show City Modal
-var modal2 = $("#city-modal");
-
-$("#setCity").on("click", function () {
-    modal2.show();
-});
-$(".delete").on("click", function () {
-    modal2.hide();
-});
 
 // Function to search for city weather based on weather
 $('#add-city').on('click', function () {
@@ -91,22 +102,22 @@ function setWeather(x) {
         console.log({lon, lat});
         var dataWeatherAPI = "https://api.openweathermap.org/data/2.5/onecall?lat=" + lat + "&lon=" + lon + "&units=imperial&exclude=minutely,hourly,alerts&appid=" + weatherKey + "";
         fetch(dataWeatherAPI)
-            .then(function (response) {
-                return response.json();
-            })
+        .then(function (response) {
+            return response.json();
+        })
+        
+        .then(function (data2) {
+            console.log(data2);
             
-            .then(function (data2) {
-                console.log(data2);
-                
-                for (let index = 0; index < 5; index++) {
-                    var day = data2.daily[index];
-                    var obj = {
-                        temp: day.temp.day,
-                        date: day.dt
-                    }
-                    render(obj)
+            for (let index = 0; index < 5; index++) {
+                var day = data2.daily[index];
+                var obj = {
+                    temp: day.temp.day,
+                    date: day.dt
                 }
-            })
+                render(obj)
+            }
+        })
     })
 }
 
@@ -118,12 +129,12 @@ fetch("https://deezerdevs-deezer.p.rapidapi.com/track/1109737", {
         "x-rapidapi-host": "deezerdevs-deezer.p.rapidapi.com"
     }
 })
-    .then(function (response) {
-        return response.json()
-    })
-    .then(function (data) {
-        console.log(data);
-    })
+.then(function (response) {
+    return response.json()
+})
+.then(function (data) {
+    console.log(data);
+})
 
 //Deezer API - Playlist
 fetch("https://deezerdevs-deezer.p.rapidapi.com/playlist/1699332611", {
@@ -133,12 +144,12 @@ fetch("https://deezerdevs-deezer.p.rapidapi.com/playlist/1699332611", {
         "x-rapidapi-host": "deezerdevs-deezer.p.rapidapi.com"
     }
 })
-    .then(function (response) {
-        return response.json()
-    })
-    .then(function (data) {
-        console.log(data);
-    })
+.then(function (response) {
+    return response.json()
+})
+.then(function (data) {
+    console.log(data);
+})
 // code for stop alarm button
 {/* <button class="button is-danger is-large is-fullwidth is-rounded is-focused">STOP ALARM</button> */ }
 
@@ -152,6 +163,15 @@ $(".delete").on("click", function () {
     modal1.hide();
 });
 
+// Show City Modal
+var modal2 = $("#city-modal");
+
+$("#setCity").on("click", function () {
+    modal2.show();
+});
+$(".delete").on("click", function () {
+    modal2.hide();
+});
 
 
 // Show About Us Modal
