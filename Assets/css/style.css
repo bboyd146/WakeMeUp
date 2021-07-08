@@ -11,11 +11,63 @@ body {
   background-color: blueviolet;
 }
 
-.modal {
+.modal1 {
   display: none;
 }
 
-span.tag.is-danger.is-large {
-  padding: 1rem;
-  margin: 1rem;
+.modal2 {
+  display: none;
+}
+
+.modal2 {
+  display: none;
+}
+
+.modal3 {
+  display: none;
+}
+
+.fa-bell {
+  color:white;
+  padding-right: 10px;
+}
+
+.fa-cloud-rain {
+  color:white;
+  padding-right: 10px;
+}
+
+.fa-users {
+  color: white;
+  padding-right: 10px;
+}
+
+.fa-github-alt {
+  color: white;
+  padding-right: 10px;
+}
+
+.fa-book {
+  color: white;
+  padding-right: 10px;
+}
+
+/* width */
+::-webkit-scrollbar {
+  width: 10px;
+}
+
+/* Track */
+::-webkit-scrollbar-track {
+  background: #f1f1f1;
+}
+ 
+/* Handle */
+::-webkit-scrollbar-thumb {
+  background: #888;
+}
+
+/* Handle on hover */
+::-webkit-scrollbar-thumb:hover {
+  background: #555; 
 }
