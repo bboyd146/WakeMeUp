@@ -120,10 +120,15 @@ function displaySavedAlarms() {
 // Function to search for city weather based on weather
 $('#add-city').on('click', function () {
     localStorage.setItem('savedCity', $('#cityset').val());
+    var article = document.createElement("article")
+    article.classList.add("tile", "is-child", "notification", "is-info")
+    article.setAttribute("id", "weather-content")
     var currentCity = document.createElement("h3")
+    currentCity.classList.add("title")
     currentCity.innerText = $('#cityset').val();
     var root = document.getElementById("weather-tab")
-    root.appendChild(currentCity)
+    root.appendChild(article)
+    article.appendChild(currentCity)
     setWeather($('#cityset').val())
 })
 
@@ -133,8 +138,8 @@ function render(data3) {
     var currentDate = document.createElement("span")
     currentDate.innerText = moment.unix(data3.date).format(momentWeathr)
     var currentWeather = document.createElement("p")
-    currentWeather.innerText = "temp: " + data3.temp + " ˚F"
-    var root = document.getElementById("weather-tab")
+    currentWeather.innerText = "temp: " + data3.temp +" ˚F"
+    var root = document.getElementById("weather-content")
     root.appendChild(currentDate)
     root.appendChild(currentWeather)
 }
