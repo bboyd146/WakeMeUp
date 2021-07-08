@@ -79,12 +79,16 @@
 
   <div class="columns">
     <div class="column" id="pastAlarms">
+      <div class="colums is-mobile">
+        <div class="column">
         <audio controls autoplay>
           <source
             src="https://cdns-preview-2.dzcdn.net/stream/c-203ac66db3ac00f8d1e96343a8739655-2.mp3"
           />
           Your browser does not support the audio element.
         </audio>
+        </div>
+      </div>
       </div>
       <!-- Alarm Modal-->
       <div class="modal" id="alarm-modal">
@@ -99,7 +103,7 @@
             <div class="field has-addons">
               <div class="control">
                 <input class="input" type="number" step="1" min="1" max="12" id="hours" name="hours" placeholder="Enter Hrs" />
-                <input class="input" type="number" step="1" min="0" max="59" id="minutes" name="minutes" placeholder="Enter Mins" />
+                <input class="input" type="number" step="1" min="00" max="59" id="minutes" name="minutes" placeholder="Enter Mins" />
               </div>
               <div class="control">
                 <a class="button is-success" id="add-time">

@@ -28,14 +28,15 @@ addTBtn.on('click', function () {
         var alarmLi = $('<div>');
         var alarmSpan = $('<span>');
         var alarmBtn = $('<button>');
+        alarmLi.addClass('m-auto p-auto');
         alarmSpan.addClass('tag is-danger is-large');
         alarmBtn.addClass('delete');
-        alarmSpan.text('Delete');
+        // alarmSpan.text('Delete');
 
         alarmLi.append(localStorage.getItem(localStorage.key(i)));
-        alarmSpan.append(alarmLi);
-        alarmBtn.append(alarmSpan);
-        alarmSet.append(alarmBtn);
+        alarmSpan.append(alarmBtn);
+        alarmLi.append(alarmSpan);
+        alarmSet.append(alarmLi);
 
     }
 })
