@@ -7,10 +7,6 @@ var amSet = $('#am');
 var pmSet = $('#pm');
 var addTBtn = $('#add-time');
 
-
-
-
-
 // Var to display current date and time
 var momentHead = moment().format("dddd, MMMM Do YYYY, h:mm A");
 var momentAlarm = moment().format("h:mm A");
@@ -30,35 +26,45 @@ addTBtn.on('click', function () {
     localStorage.setItem('Alarm Set', setAP);
 })
 
-// Function to search for city weather based on weather
-// $('#add-city').on('click', function () {
 
-    // Weather API
-    //var weatherKey = "259bd6474c5faa56865476f0e7617266";
-    //var userCity = "Houston"
-    //$('#cityset').val();
-    //localStorage.setItem('City', userCity);
+
+
+// Show City Modal
+var modal2 = $("#city-modal");
+
+$("#setCity").on("click", function () {
+    modal2.show();
+});
+$(".delete").on("click", function () {
+    modal2.hide();
+});
+
+// Function to search for city weather based on weather
+$('#add-city').on('click', function () {
+    localStorage.setItem('savedCity', $('#cityset').val());
+    var currentCity = document.createElement("h3")
+    currentCity.innerText = $('#cityset').val();
+    var root = document.getElementById("weather-tab")
+    root.appendChild(currentCity)
+    setWeather($('#cityset').val())
+})
+
 
 //function to display the current weather and forecast
 function render(data3) {
-    var currentCity = document.createElement("h3")
-    currentCity.innerText = userCity + " "
     var currentDate = document.createElement("span")
-    currentDate.innerText = moment().add("days").format(momentWeathr)
-    currentCity.appendChild(currentDate)
+    currentDate.innerText = moment.unix(data3.date).format(momentWeathr)
     var currentWeather = document.createElement("p")
     currentWeather.innerText = "temp: " + data3.temp +" ˚F"
     var root = document.getElementById("weather-tab")
-    root.appendChild(currentCity)
     root.appendChild(currentDate)
     root.appendChild(currentWeather)
 }
 
 var weatherKey = "259bd6474c5faa56865476f0e7617266";
-var userCity = "Houston";
-var weatherAPI = "https://api.openweathermap.org/data/2.5/weather?q=" + userCity + "&units=imperial&appid=" + weatherKey + "";
-
-{
+//Weather API
+function setWeather(x) {
+    var weatherAPI = "https://api.openweathermap.org/data/2.5/weather?q=" + x + "&units=imperial&appid=" + weatherKey + "";
     fetch(weatherAPI)
     .then(function (response) {
         return response.json();
@@ -80,7 +86,8 @@ var weatherAPI = "https://api.openweathermap.org/data/2.5/weather?q=" + userCity
                 for (let index = 0; index < 5; index++) {
                     var day = data2.daily[index];
                     var obj = {
-                        temp: day.temp.day
+                        temp: day.temp.day,
+                        date: day.dt
                     }
                     render(obj)
                 }
@@ -130,15 +137,7 @@ $(".delete").on("click", function () {
     modal1.hide();
 });
 
-// Show City Modal
-var modal2 = $("#city-modal");
 
-$("#setCity").on("click", function () {
-    modal2.show();
-});
-$(".delete").on("click", function () {
-    modal2.hide();
-});
 
 // Show About Us Modal
 var modal3 = $("#about-us-modal");
