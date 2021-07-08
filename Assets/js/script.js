@@ -84,6 +84,7 @@ function displaySavedAlarms() {
         alarmSpan.append(alarmBtn);
         alarmLi.append(alarmSpan);
         alarmSet.append(alarmLi);
+    }
 
         var a = parseInt($("#minutes").val());
         var b = parseInt($("#hours").val())
@@ -97,7 +98,7 @@ function displaySavedAlarms() {
             
             
         }
-    }
+    
 }
 
 // // This function is being called below and will run when the page loads.
