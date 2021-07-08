@@ -24,6 +24,20 @@ addTBtn.on('click', function () {
     var amOrpm = $('input[name="foobar"]:checked').parent('label').text();
     var setAP = userHrs + ":" + userMins + " " + amOrpm;
     localStorage.setItem('Alarm Set', setAP);
+    for (var i = 0; i < localStorage.length; i++){
+        var alarmLi = $('<div>');
+        var alarmSpan = $('<span>');
+        var alarmBtn = $('<button>');
+        alarmSpan.addClass('tag is-danger is-large');
+        alarmBtn.addClass('delete');
+        alarmSpan.text('Delete');
+
+        alarmLi.append(localStorage.getItem(localStorage.key(i)));
+        alarmSpan.append(alarmLi);
+        alarmBtn.append(alarmSpan);
+        alarmSet.append(alarmBtn);
+
+    }
 })
 
 
