@@ -32,22 +32,33 @@ console.log(currentMn);
 // inserting moment in elements
 headerTitle.text(momentHead);
 
-// var savedTimes = localStorage.getItem('Alarm Set');
-// if (savedTimes !== null) {
-// writeAlarms();
-// }
-
+const alarms = [];
+var savedTimes = localStorage.getItem('Saved Alarms');
+console.log(savedTimes)
+if (savedTimes !== null) {
+    console.log('Test')
+    alarms.push(... JSON.parse(savedTimes));
+}
+console.log(alarms)
 displaySavedAlarms();
+
+
 
 // call-back  function to close modals
 addTBtn.on('click', writeAlarms)
 function writeAlarms() {
-
-    var userHrs = $("#hours").val();
-    var userMins = $('#minutes').val();
-    var amOrpm = $('input[name="foobar"]:checked').parent('label').text();
+    
+    var userHrs = $("#hours").val().trim();
+    var userMins = $('#minutes').val().trim();
+    var amOrpm = $('input[name="foobar"]:checked').parent('label').text().trim();
     var setAP = userHrs + ":" + userMins + " " + amOrpm;
-    localStorage.setItem('Alarm Set', setAP);
+    // localStorage.setItem('Alarm Set', setAP);
+    alarms.push(setAP);
+    // const savedAlarms = localStorage.getItem('Alarm Set');
+    // console.log(savedAlarms)
+    // alarms.join(JSON.parse(savedAlarms))
+    // alarms.push(setAP);
+    localStorage.setItem('Saved Alarms', JSON.stringify(alarms));
     // for (var i = 0; i < localStorage.length; i++){
     //     var alarmLi = $('<div>');
     //     var alarmSpan = $('<span>');
@@ -73,19 +84,31 @@ function writeAlarms() {
 //   }
 
 function displaySavedAlarms() {
-    for (var i = 0; i < localStorage.length; i++) {
+    for (var i = 0; i < alarms.length; i++) {
         var alarmLi = $('<div>');
         var alarmSpan = $('<span>');
         var alarmBtn = $('<button>');
         alarmLi.addClass('m-auto p-auto');
+        alarmLi.attr('id', 'alarm-div');
         alarmSpan.addClass('tag is-danger is-large');
         alarmBtn.addClass('delete');
         alarmBtn.attr('id', 'remove');
 
-        alarmLi.append(localStorage.getItem(localStorage.key(i)));
+        // const savedAlarms = localStorage.getItem('Alarm Set');
+        // alarms.join(JSON.parse(savedAlarms))
+
+        alarmLi.append(alarms[i]);
         alarmSpan.append(alarmBtn);
         alarmLi.append(alarmSpan);
         alarmSet.append(alarmLi);
+
+        $('#remove').click(function () {
+            if (this.id == 'remove') {
+            //    alert('Submit 1 clicked');
+            $('#alarm-div').remove();
+            }
+            
+         });
     }
 
         var a = parseInt($("#minutes").val());
