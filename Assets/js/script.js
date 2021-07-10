@@ -254,3 +254,11 @@ removeBtn.on('click', function () {
     $('m-auto p-auto').remove();
     console.log('clicked');
 })
+
+
+
+
+// Burger icon 
+$('.navbar-burger').click(function() {
+    $('#navbarMenuHeroA, .navbar-burger').toggleClass('is-active');
+  });  
