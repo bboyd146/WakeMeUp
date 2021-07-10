@@ -98,6 +98,7 @@ function displaySavedAlarms() {
             console.log('it worked');
             // songEl.play();
             $('#music').trigger('play');
+            // $('#music').get(0).play();
             
         } 
     
@@ -210,9 +211,12 @@ fetch("https://deezerdevs-deezer.p.rapidapi.com/playlist/1699332611", {
         console.log(data);
         console.log(data.tracks.data[0].preview)
         for (var i = 0; i < data.tracks.data.length; i++) {
-            var src = data.tracks.data[i].preview;
-            $('#src').attr('src', src);
-            console.log(src)
+            var src = data.tracks.data;
+            var randSrc = Math.floor(Math.random() * src.length);
+            var song = src[randSrc].preview;
+            console.log(song)
+            $('#src').attr('src', song);
+            // console.log(src)
         }
     })
 // code for stop alarm button
