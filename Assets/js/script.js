@@ -3,6 +3,7 @@ var alarmSet = $('#pastAlarms');
 var currentW = $('#weather-tab');
 var headerTitle = $('#subtitle');
 var songEl = $('#music');
+var removeBtn = $('#remove');
 // modal ids
 var amSet = $('#am');
 var pmSet = $('#pm');
@@ -79,6 +80,7 @@ function displaySavedAlarms() {
         alarmLi.addClass('m-auto p-auto');
         alarmSpan.addClass('tag is-danger is-large');
         alarmBtn.addClass('delete');
+        alarmBtn.attr('id', 'remove');
 
         alarmLi.append(localStorage.getItem(localStorage.key(i)));
         alarmSpan.append(alarmBtn);
@@ -94,10 +96,10 @@ function displaySavedAlarms() {
 
         if (b === currentHr && a === currentMn) {
             console.log('it worked');
-            songEl.play()
+            // songEl.play();
+            $('#music').trigger('play');
             
-            
-        }
+        } 
     
 }
 
@@ -206,6 +208,10 @@ fetch("https://deezerdevs-deezer.p.rapidapi.com/playlist/1699332611", {
     })
     .then(function (data) {
         console.log(data);
+        console.log(data.tracks.data[0].preview)
+        // for (var i = 0; i < data.tracks.data.length; i++) {
+
+        // }
     })
 // code for stop alarm button
 {/* <button class="button is-danger is-large is-fullwidth is-rounded is-focused">STOP ALARM</button> */ }
@@ -240,3 +246,9 @@ $("#aboutUs").on("click", function () {
 $(".delete").on("click", function () {
     modal3.hide();
 });
+
+// Remove set alarm function
+removeBtn.on('click', function () {
+    $('m-auto p-auto').remove();
+    console.log('clicked');
+})

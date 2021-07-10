@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
   <meta charset="UTF-8" />
   <meta http-equiv="X-UA-Compatible" content="IE=edge" />
@@ -9,7 +10,8 @@
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
   <link href="https://fonts.googleapis.com/css2?family=Libre+Baskerville&display=swap" rel="stylesheet" />
-  <link rel="stylesheet" href="https://pro.fontawesome.com/releases/v5.10.0/css/all.css" integrity="sha384-AYmEC3Yw5cVb3ZcuHtOA93w35dYTsvhLPVnYs9eStHfGJvOvKxVfELGroGkvsg+p" crossorigin="anonymous"/>
+  <link rel="stylesheet" href="https://pro.fontawesome.com/releases/v5.10.0/css/all.css"
+    integrity="sha384-AYmEC3Yw5cVb3ZcuHtOA93w35dYTsvhLPVnYs9eStHfGJvOvKxVfELGroGkvsg+p" crossorigin="anonymous" />
   <link rel="stylesheet" href="./Assets/css/style.css" />
 </head>
 
@@ -39,8 +41,8 @@
               </a>
             </div>
           </div>
-        </nav>
-      </div>
+      </nav>
+    </div>
     </div>
     <!-- Hero content: will be in the middle -->
     <div class="hero-body">
@@ -51,8 +53,8 @@
         <p id="subtitle"></p>
       </div>
     </div>
-  
-  
+
+
     <!-- Hero footer: will stick at the bottom -->
     <div class="hero-foot">
       <nav class="tabs">
@@ -66,145 +68,149 @@
       </nav>
     </div>
   </section>
-  
+
   <section class="hero is-small is-dark has-text-centered">
     <div class="hero-body">
       <p class="subtitle">
-        If you are <strong>atrocious</strong> at waking up and want to take the first step to not setting 10+ alarms. Good news! Wake Me Up, is designed for you, the heavy sleeper!
-        Our team of grade A web developers have created a state of the art alarm, using the fine arts of Swedish Black Metal, and real time weather. To bring you the one and 
-        only alarm you will ever need! 
-        </p>
+        If you are <strong>atrocious</strong> at waking up and want to take the first step to not setting 10+ alarms.
+        Good news! Wake Me Up, is designed for you, the heavy sleeper!
+        Our team of grade A web developers have created a state of the art alarm, using the fine arts of Swedish Black
+        Metal, and real time weather. To bring you the one and
+        only alarm you will ever need!
+      </p>
     </div>
   </section>
-
+  <div class="container">
+    <div class="notification has-background-grey-darke has-text-centered has-text-weight-semibold">
+      <p class="pb-1">Feel free to browse through our catalog of tracks that will be a potential alarm sound for you !!</p>
+      <iframe title="deezer-widget" src="https://widget.deezer.com/widget/auto/playlist/1699332611" width="100%"
+      height="150" frameborder="0" allowtransparency="true" allow="encrypted-media; clipboard-write"></iframe>
+    </div>
+  </div>
   <div class="columns">
     <div class="column" id="pastAlarms">
       <div class="colums is-mobile">
         <div class="column">
-        <audio controls id="music" preload>
-          <source
-            src="https://cdns-preview-2.dzcdn.net/stream/c-203ac66db3ac00f8d1e96343a8739655-2.mp3"
-          />
-          Your browser does not support the audio element.
-        </audio>
+          <audio controls id="music" preload="auto" class="is-hidden">
+            <source src="https://cdns-preview-2.dzcdn.net/stream/c-203ac66db3ac00f8d1e96343a8739655-2.mp3" />
+            Your browser does not support the audio element.
+          </audio>
+          <!-- <iframe title="deezer-widget" src="https://widget.deezer.com/widget/auto/playlist/1699332611" width="100%"
+            height="150" frameborder="0" allowtransparency="true" allow="encrypted-media; clipboard-write"></iframe> -->
         </div>
       </div>
-      </div>
-      <!-- Alarm Modal-->
-      <div class="modal" id="alarm-modal">
-        <div class="modal-background"></div>
-        <div class="modal-card">
-          <header class="modal-card-head">
-            <p class="modal-card-title">Set Alarm</p>
-            <button class="delete" aria-label="close"></button>
-          </header>
-          <section class="modal-card-body">
-            <!-- Content ... -->
-            <div class="field has-addons">
-              <div class="control">
-                <input class="input" type="number" step="1" min="1" max="12" id="hours" name="hours" placeholder="Enter Hrs" />
-                <input class="input" type="number" step="1" min="00" max="59" id="minutes" name="minutes" placeholder="Enter Mins" />
-              </div>
-              <div class="control">
-                <a class="button is-success" id="add-time">
-                  Add Time
-                </a>
-              </div>
+    </div>
+    <!-- Alarm Modal-->
+    <div class="modal" id="alarm-modal">
+      <div class="modal-background"></div>
+      <div class="modal-card">
+        <header class="modal-card-head">
+          <p class="modal-card-title">Set Alarm</p>
+          <button class="delete" aria-label="close"></button>
+        </header>
+        <section class="modal-card-body">
+          <!-- Content ... -->
+          <div class="field has-addons">
+            <div class="control">
+              <input class="input" type="number" step="1" min="1" max="12" id="hours" name="hours"
+                placeholder="Enter Hrs" />
+              <input class="input" type="number" step="1" min="00" max="59" id="minutes" name="minutes"
+                placeholder="Enter Mins" />
             </div>
             <div class="control">
-              <label class="radio">
-                <input type="radio" name="foobar" id="am">
-                AM
-              </label>
-              <label class="radio">
-                <input type="radio" name="foobar" id="pm">
-                PM
-              </label>
+              <a class="button is-success" id="add-time">
+                Add Time
+              </a>
             </div>
-          </section>
-          <footer class="modal-card-foot">
-          </footer>
-        </div>
+          </div>
+          <div class="control">
+            <label class="radio">
+              <input type="radio" name="foobar" id="am">
+              AM
+            </label>
+            <label class="radio">
+              <input type="radio" name="foobar" id="pm">
+              PM
+            </label>
+          </div>
+        </section>
+        <footer class="modal-card-foot">
+        </footer>
       </div>
-
-      <!-- City Modal -->
-      <div class="modal" id="city-modal">
-        <div class="modal-background"></div>
-        <div class="modal-card">
-          <header class="modal-card-head">
-            <p class="modal-card-title">Set City</p>
-            <button class="delete" aria-label="close"></button>
-          </header>
-          <section class="modal-card-body">
-            <!-- Content ... -->
-            <div class="field has-addons">
-              <div class="control">
-                <input
-                  class="input"
-                  id="cityset"
-                  type="text"
-                  placeholder="Enter City"
-                />
-              </div>
-              <div class="control">
-                <a class="button is-success" id="add-city"> Add City </a>
-              </div>
-            </div>
-            </section>
-        </div>
-      </div>
-
-      <!--About Us modal-->
-      <div class="modal" id="about-us-modal">
-        <div class="modal-background"></div>
-        <div class="modal-card">
-          <header class="modal-card-head">
-            <p class="modal-card-title">About Us</p>
-            <button class="delete" aria-label="close"></button>
-          </header>
-          <section class="modal-card-body">
-            <!-- Content ... -->
-            <div class="content">
-              <h1>About The Team</h1> 
-              <p>Wake Me Up! Is made of 3 aspiring web developers, Bradley Boyd, Salvador Diaz, and Liam Rumgay.
-                We are all currently enrolled into a web development course, Rice University Boot Camp. While this is our first project 
-              we are always striving for better as well as consistently looking for ways to refine ourselves. Please take a look at our GitHub accounts,
-            and most importantly, please enjoy our application! </p>
-            </div>
-            </section>
-          <footer class="modal-card-foot has-text-centered">
-            <button class="button is-dark" id="save-city"><a href='https://github.com/bboyd146'>Bradley Boyd</a></button>
-            <button class="button is-dark" id="save-city"><a href='https://github.com/salvadordiaz1222'>Salvador Diaz</a></button>
-            <button class="button is-dark" id="save-city"><a href='https://github.com/LRumgay'>Liam Rumgay</a></button>
-          </footer>
-        </div>
-      </div>
-      
-      
-      <!-- <button class="button is-danger is-large is-fullwidth is-rounded is-focused">STOP ALARM</button> -->
-    <div class="tile is-parent" id="weather-tab"></div>
     </div>
-    <!--Footer-->
-    <footer class="footer">
-      <div class="content has-text-centered">
-        <p>
-          <strong>Wake Me Up!</strong> made with the blood sweat and tears of
-          group 5.
-        </p>
-      </div>
-    </footer>
 
-    <script
-      src="https://code.jquery.com/jquery-3.5.1.slim.min.js"
-      integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj"
-      crossorigin="anonymous"
-    ></script>
-    <script
-      src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.29.1/moment.min.js"
-      integrity="sha512-qTXRIMyZIFb8iQcfjXWCO8+M5Tbc38Qi5WzdPOYZHIlZpzBHG3L3by84BBBOiRGiEb7KKtAOAs5qYdUiZiQNNQ=="
-      crossorigin="anonymous"
-      referrerpolicy="no-referrer"
-    ></script>
-    <script src="./Assets/js/script.js"></script>
-  </body>
+    <!-- City Modal -->
+    <div class="modal" id="city-modal">
+      <div class="modal-background"></div>
+      <div class="modal-card">
+        <header class="modal-card-head">
+          <p class="modal-card-title">Set City</p>
+          <button class="delete" aria-label="close"></button>
+        </header>
+        <section class="modal-card-body">
+          <!-- Content ... -->
+          <div class="field has-addons">
+            <div class="control">
+              <input class="input" id="cityset" type="text" placeholder="Enter City" />
+            </div>
+            <div class="control">
+              <a class="button is-success" id="add-city"> Add City </a>
+            </div>
+          </div>
+        </section>
+      </div>
+    </div>
+
+    <!--About Us modal-->
+    <div class="modal" id="about-us-modal">
+      <div class="modal-background"></div>
+      <div class="modal-card">
+        <header class="modal-card-head">
+          <p class="modal-card-title">About Us</p>
+          <button class="delete" aria-label="close"></button>
+        </header>
+        <section class="modal-card-body">
+          <!-- Content ... -->
+          <div class="content">
+            <h1>About The Team</h1>
+            <p>Wake Me Up! Is made of 3 aspiring web developers, Bradley Boyd, Salvador Diaz, and Liam Rumgay.
+              We are all currently enrolled into a web development course, Rice University Boot Camp. While this is our
+              first project
+              we are always striving for better as well as consistently looking for ways to refine ourselves. Please
+              take a look at our GitHub accounts,
+              and most importantly, please enjoy our application! </p>
+          </div>
+        </section>
+        <footer class="modal-card-foot has-text-centered">
+          <button class="button is-dark" id="save-city"><a href='https://github.com/bboyd146'>Bradley Boyd</a></button>
+          <button class="button is-dark" id="save-city"><a href='https://github.com/salvadordiaz1222'>Salvador
+              Diaz</a></button>
+          <button class="button is-dark" id="save-city"><a href='https://github.com/LRumgay'>Liam Rumgay</a></button>
+        </footer>
+      </div>
+    </div>
+
+
+    <!-- <button class="button is-danger is-large is-fullwidth is-rounded is-focused">STOP ALARM</button> -->
+    <div class="tile is-parent" id="weather-tab"></div>
+  </div>
+  <!--Footer-->
+  <footer class="footer">
+    <div class="content has-text-centered">
+      <p>
+        <strong>Wake Me Up!</strong> made with the blood sweat and tears of
+        group 5.
+      </p>
+    </div>
+  </footer>
+
+  <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"
+    integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj"
+    crossorigin="anonymous"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.29.1/moment.min.js"
+    integrity="sha512-qTXRIMyZIFb8iQcfjXWCO8+M5Tbc38Qi5WzdPOYZHIlZpzBHG3L3by84BBBOiRGiEb7KKtAOAs5qYdUiZiQNNQ=="
+    crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+  <script src="./Assets/js/script.js"></script>
+</body>
+
 </html>
