@@ -209,9 +209,11 @@ fetch("https://deezerdevs-deezer.p.rapidapi.com/playlist/1699332611", {
     .then(function (data) {
         console.log(data);
         console.log(data.tracks.data[0].preview)
-        // for (var i = 0; i < data.tracks.data.length; i++) {
-
-        // }
+        for (var i = 0; i < data.tracks.data.length; i++) {
+            var src = data.tracks.data[i].preview;
+            $('#src').attr('src', src);
+            console.log(src)
+        }
     })
 // code for stop alarm button
 {/* <button class="button is-danger is-large is-fullwidth is-rounded is-focused">STOP ALARM</button> */ }
