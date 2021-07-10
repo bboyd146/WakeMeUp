@@ -40,6 +40,7 @@ if (savedTimes !== null) {
     alarms.push(... JSON.parse(savedTimes));
 }
 console.log(alarms)
+
 displaySavedAlarms();
 
 
@@ -54,34 +55,12 @@ function writeAlarms() {
     var setAP = userHrs + ":" + userMins + " " + amOrpm;
     // localStorage.setItem('Alarm Set', setAP);
     alarms.push(setAP);
-    // const savedAlarms = localStorage.getItem('Alarm Set');
-    // console.log(savedAlarms)
-    // alarms.join(JSON.parse(savedAlarms))
-    // alarms.push(setAP);
-    localStorage.setItem('Saved Alarms', JSON.stringify(alarms));
-    // for (var i = 0; i < localStorage.length; i++){
-    //     var alarmLi = $('<div>');
-    //     var alarmSpan = $('<span>');
-    //     var alarmBtn = $('<button>');
-    //     alarmLi.addClass('m-auto p-auto');
-    //     alarmSpan.addClass('tag is-danger is-large');
-    //     alarmBtn.addClass('delete');
-    //     // alarmSpan.text('Delete');
 
-    // alarmLi.append(localStorage.getItem(localStorage.key(i)));
-    // alarmSpan.append(alarmBtn);
-    // alarmLi.append(alarmSpan);
-    // alarmSet.append(alarmLi);
-    displaySavedAlarms();
+    localStorage.setItem('Saved Alarms', JSON.stringify(alarms));
+
 }
 
-// function playpause() {
-//     if (songEl.paused) {
-//       songEl.play();
-//     } else {
-//       songEl.pause();
-//     }
-//   }
+
 
 function displaySavedAlarms() {
     for (var i = 0; i < alarms.length; i++) {
@@ -94,8 +73,7 @@ function displaySavedAlarms() {
         alarmBtn.addClass('delete');
         alarmBtn.attr('id', 'remove');
 
-        // const savedAlarms = localStorage.getItem('Alarm Set');
-        // alarms.join(JSON.parse(savedAlarms))
+
 
         alarmLi.append(alarms[i]);
         alarmSpan.append(alarmBtn);
@@ -104,7 +82,7 @@ function displaySavedAlarms() {
 
         $('#remove').click(function () {
             if (this.id == 'remove') {
-            //    alert('Submit 1 clicked');
+            
             $('#alarm-div').remove();
             }
             
@@ -127,25 +105,22 @@ function displaySavedAlarms() {
     
 }
 
-// // This function is being called below and will run when the page loads.
-// function init() {
-//     // Get stored todos from localStorage
-//     var storedTodos = localStorage.getItem(localStorage.key(i));
 
-//     // If todos were retrieved from localStorage, update the todos array to it
-//     if (storedTodos !== null) {
-//       alarmSet = storedTodos;
-//     }
-
-//     // This is a helper function that will render todos to the DOM
-//     renderTodos();
-//   }
-
+const weather = [];
+console.log(weather)
+var userCities = localStorage.getItem('Saved City');
+console.log(userCities)
+if (userCities !== null) {
+    console.log('Test')
+    weather.push(... JSON.parse(userCities));
+}
 
 
 // Function to search for city weather based on weather
 $('#add-city').on('click', function () {
-    localStorage.setItem('savedCity', $('#cityset').val());
+    var cityInput = $('#cityset').val();
+    console.log(cityInput)
+    localStorage.setItem('Saved City', JSON.stringify(weather));
     var article = document.createElement("article")
     article.classList.add("tile", "is-child", "notification", "is-info")
     article.setAttribute("id", "weather-content")
@@ -156,6 +131,7 @@ $('#add-city').on('click', function () {
     root.appendChild(article)
     article.appendChild(currentCity)
     setWeather($('#cityset').val())
+    weather.push(cityInput);
 })
 
 
