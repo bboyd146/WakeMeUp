@@ -72,3 +72,9 @@ body {
   background: #555; 
 }
 
+ #hero {
+    height: 80vh;
+    background: linear-gradient( rgb(199, 32, 15), transparent), linear-gradient( -45deg, rgb(37, 211, 293), transparent), linear-gradient( 45deg, rgb(60, 189, 206), transparent), url('/Assets/img/KrakenWallpaper.jpg') center center / cover no-repeat;
+    background-blend-mode: multiply;
+ }
+
