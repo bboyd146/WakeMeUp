@@ -9,7 +9,6 @@ var amSet = $('#am');
 var pmSet = $('#pm');
 var addTBtn = $('#add-time');
 var userHrs = $("#hours").val();
-console.log(userHrs);
 var userMins = $('#minutes').val();
 
 
@@ -34,12 +33,12 @@ headerTitle.text(momentHead);
 
 const alarms = [];
 var savedTimes = localStorage.getItem('Saved Alarms');
-console.log(savedTimes)
+// console.log(savedTimes)
 if (savedTimes !== null) {
     console.log('Test')
-    alarms.push(... JSON.parse(savedTimes));
+    alarms.push(...JSON.parse(savedTimes));
 }
-console.log(alarms)
+// console.log(alarms)
 
 displaySavedAlarms();
 
@@ -47,8 +46,9 @@ displaySavedAlarms();
 
 // call-back  function to close modals
 addTBtn.on('click', writeAlarms)
+
 function writeAlarms() {
-    
+
     var userHrs = $("#hours").val().trim();
     var userMins = $('#minutes').val().trim();
     var amOrpm = $('input[name="foobar"]:checked').parent('label').text().trim();
@@ -58,12 +58,14 @@ function writeAlarms() {
 
     localStorage.setItem('Saved Alarms', JSON.stringify(alarms));
 
+    displaySavedAlarms();
 }
 
 
 
 function displaySavedAlarms() {
-    for (var i = 0; i < alarms.length; i++) {
+    alarmSet.empty();
+    for (let i = 0; i < alarms.length; i++) {
         var alarmLi = $('<div>');
         var alarmSpan = $('<span>');
         var alarmBtn = $('<button>');
@@ -80,30 +82,34 @@ function displaySavedAlarms() {
         alarmLi.append(alarmSpan);
         alarmSet.append(alarmLi);
 
+
+
         $('#remove').click(function () {
             if (this.id == 'remove') {
-            
-            $('#alarm-div').remove();
+                $('#alarm-div').remove();
             }
-            
-         });
+        });
     }
 
-        var a = parseInt($("#minutes").val());
-        var b = parseInt($("#hours").val())
-        console.log($("#hours").val());
-        console.log(a);
-        console.log(b);
-
-        if (b === currentHr && a === currentMn) {
-            console.log('it worked');
-            // songEl.play();
-            $('#music').trigger('play');
-            // $('#music').get(0).play();
-            
-        } 
-    
 }
+
+
+
+var a = parseInt($("#minutes").val());
+var b = parseInt($("#hours").val())
+// console.log($("#hours").val());
+// console.log(a);
+// console.log(b);
+
+if (b === currentHr && a === currentMn) {
+    console.log('it worked');
+    // songEl.play();
+    $('#music').trigger('play');
+    // $('#music').get(0).play();
+
+}
+
+
 
 
 const weather = [];
@@ -112,7 +118,7 @@ var userCities = localStorage.getItem('Saved City');
 console.log(userCities)
 if (userCities !== null) {
     console.log('Test')
-    weather.push(... JSON.parse(userCities));
+    weather.push(...JSON.parse(userCities));
 }
 
 
@@ -140,7 +146,7 @@ function render(data3) {
     var currentDate = document.createElement("span")
     currentDate.innerText = moment.unix(data3.date).format(momentWeathr)
     var currentWeather = document.createElement("p")
-    currentWeather.innerText = "temp: " + data3.temp +" ˚F"
+    currentWeather.innerText = "temp: " + data3.temp + " ˚F"
     var root = document.getElementById("weather-content")
     root.appendChild(currentDate)
     root.appendChild(currentWeather)
@@ -180,20 +186,20 @@ function setWeather(x) {
         })
 }
 
-//Deezer API - Track
-fetch("https://deezerdevs-deezer.p.rapidapi.com/track/1109737", {
-    "method": "GET",
-    "headers": {
-        "x-rapidapi-key": "Ut55yncQpLmshFtmNkz05x0K4gZ7p1lfFWzjsnuN3hmhNoFgqU",
-        "x-rapidapi-host": "deezerdevs-deezer.p.rapidapi.com"
-    }
-})
-    .then(function (response) {
-        return response.json()
-    })
-    .then(function (data) {
-        console.log(data);
-    })
+// //Deezer API - Track
+// fetch("https://deezerdevs-deezer.p.rapidapi.com/track/1109737", {
+//     "method": "GET",
+//     "headers": {
+//         "x-rapidapi-key": "Ut55yncQpLmshFtmNkz05x0K4gZ7p1lfFWzjsnuN3hmhNoFgqU",
+//         "x-rapidapi-host": "deezerdevs-deezer.p.rapidapi.com"
+//     }
+// })
+//     .then(function (response) {
+//         return response.json()
+//     })
+//     .then(function (data) {
+//         console.log(data);
+//     })
 
 //Deezer API - Playlist
 fetch("https://deezerdevs-deezer.p.rapidapi.com/playlist/1699332611", {
@@ -213,7 +219,7 @@ fetch("https://deezerdevs-deezer.p.rapidapi.com/playlist/1699332611", {
             var src = data.tracks.data;
             var randSrc = Math.floor(Math.random() * src.length);
             var song = src[randSrc].preview;
-            console.log(song)
+            // console.log(song)
             $('#src').attr('src', song);
             // console.log(src)
         }
@@ -262,6 +268,6 @@ removeBtn.on('click', function () {
 
 
 // Burger icon 
-$('.navbar-burger').click(function() {
+$('.navbar-burger').click(function () {
     $('#navbarMenuHeroA, .navbar-burger').toggleClass('is-active');
-  });  
+});
