@@ -124,6 +124,13 @@ function StopAlarm() {
     stopSong.attr('id', 'stop-song');
     stopSong.text('STOP ALARM');
     alarmSet.append(stopSong);
+
+    $('#stop-song').click(function () {
+        if (this.id == 'stop-song') {
+           $('#music').trigger('pause');
+        }
+        
+     });
 }
 
 // code for stop alarm button
