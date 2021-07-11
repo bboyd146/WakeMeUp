@@ -9,7 +9,7 @@ var amSet = $('#am');
 var pmSet = $('#pm');
 var addTBtn = $('#add-time');
 var userHrs = $("#hours").val();
-console.log(userHrs)
+console.log(userHrs);
 var userMins = $('#minutes').val();
 
 
@@ -32,126 +32,102 @@ console.log(currentMn);
 // inserting moment in elements
 headerTitle.text(momentHead);
 
-const alarms = [];
-var savedTimes = localStorage.getItem('Saved Alarms');
-
-if (savedTimes !== null) {
-    console.log('Test')
-    alarms.push(...JSON.parse(savedTimes));
-}
-
+// var savedTimes = localStorage.getItem('Alarm Set');
+// if (savedTimes !== null) {
+// writeAlarms();
+// }
 
 displaySavedAlarms();
-
-
-
-// Event Listener
+var setAP 
+// call-back  function to close modals
 addTBtn.on('click', writeAlarms)
-
 function writeAlarms() {
 
-    var userHrs = $("#hours").val().trim();
-    var userMins = $('#minutes').val().trim();
-    var amOrpm = $('input[name="foobar"]:checked').parent('label').text().trim();
-    var setAP = userHrs + ":" + userMins + " " + amOrpm;
-    alarms.push(setAP);
+    var userHrs = $("#hours").val();
+    var userMins = $('#minutes').val();
+    var amOrpm = $('input[name="foobar"]:checked').parent('label').text();
+    setAP = userHrs + ":" + userMins + " " + amOrpm;
+    localStorage.setItem('Alarm Set', setAP);
+    // for (var i = 0; i < localStorage.length; i++){
+    //     var alarmLi = $('<div>');
+    //     var alarmSpan = $('<span>');
+    //     var alarmBtn = $('<button>');
+    //     alarmLi.addClass('m-auto p-auto');
+    //     alarmSpan.addClass('tag is-danger is-large');
+    //     alarmBtn.addClass('delete');
+    //     // alarmSpan.text('Delete');
 
-    localStorage.setItem('Saved Alarms', JSON.stringify(alarms));
-
+    // alarmLi.append(localStorage.getItem(localStorage.key(i)));
+    // alarmSpan.append(alarmBtn);
+    // alarmLi.append(alarmSpan);
+    // alarmSet.append(alarmLi);
     displaySavedAlarms();
 }
 
-
+// function playpause() {
+//     if (songEl.paused) {
+//       songEl.play();
+//     } else {
+//       songEl.pause();
+//     }
+//   }
+const alarmInterval = setInterval(function () {
+    if (moment().isSame(setAP)) {
+        $('#music').trigger('play');
+    }
+}, 60000)
 
 function displaySavedAlarms() {
-    alarmSet.empty();
-    for (let i = 0; i < alarms.length; i++) {
+    for (var i = 0; i < localStorage.length; i++) {
         var alarmLi = $('<div>');
         var alarmSpan = $('<span>');
         var alarmBtn = $('<button>');
         alarmLi.addClass('m-auto p-auto');
-        alarmLi.attr('id', 'alarm-div');
         alarmSpan.addClass('tag is-danger is-large');
         alarmBtn.addClass('delete');
         alarmBtn.attr('id', 'remove');
 
-
-
-        alarmLi.append(alarms[i]);
+        alarmLi.append(localStorage.getItem(localStorage.key(i)));
         alarmSpan.append(alarmBtn);
         alarmLi.append(alarmSpan);
         alarmSet.append(alarmLi);
     }
 
-    var a = parseInt($('#minutes').val());
-    var b = parseInt($('#hours').val());
-    console.log(a);
-    console.log(b);
+        var a = parseInt($("#minutes").val());
+        var b = parseInt($("#hours").val())
+        console.log($("#hours").val());
+        console.log(a);
+        console.log(b);
 
-    if (b === currentHr && a === currentMn) {
-        console.log('it worked');
-        $('#music').trigger("play");
-        // $('#music').get(0).play();
-        StopAlarm();
-    }
+        if (b === currentHr && a === currentMn) {
+            console.log('it worked');
+            // songEl.play();
+            $('#music').trigger('play');
+            // $('#music').get(0).play();
+            
+        } 
+    
 }
 
+// // This function is being called below and will run when the page loads.
+// function init() {
+//     // Get stored todos from localStorage
+//     var storedTodos = localStorage.getItem(localStorage.key(i));
 
-// Remove set alarm function
-$('button').on('click', function () {
-    if (this.id == 'remove') {
-        console.log('clicked');
-        $('#alarm-div').remove();
-        localStorage.removeItem('Saved Alarms').includes(alarms, 0);
-    }
-})
+//     // If todos were retrieved from localStorage, update the todos array to it
+//     if (storedTodos !== null) {
+//       alarmSet = storedTodos;
+//     }
 
-// var a = parseInt($('#minutes').val());
-// var b = parseInt($('#hours').val());
-// console.log(a);
-// console.log(b);
+//     // This is a helper function that will render todos to the DOM
+//     renderTodos();
+//   }
 
-// if (b === currentHr && a === currentMn) {
-//     console.log('it worked');
-//     // songEl.play();
-//     $('#music').trigger('play');
-//     // $('#music').get(0).play();
-//     StopAlarm();
-// };
-function StopAlarm() {
-    var stopSong = $('<button>');
-    stopSong.addClass('button is-danger is-large is-fullwidth is-rounded is-focused');
-    stopSong.attr('id', 'stop-song');
-    stopSong.text('STOP ALARM');
-    alarmSet.append(stopSong);
-
-    $('#stop-song').click(function () {
-        if (this.id == 'stop-song') {
-           $('#music').trigger('pause');
-        }
-        
-     });
-}
-
-// code for stop alarm button
-{/* <button class="button is-danger is-large is-fullwidth is-rounded is-focused">STOP ALARM</button> */ }
-
-
-const weather = [];
-console.log(weather)
-var userCities = localStorage.getItem('Saved City');
-console.log(userCities)
-if (userCities !== null) {
-    console.log('Test')
-    weather.push(...JSON.parse(userCities));
-}
 
 
 // Function to search for city weather based on weather
 $('#add-city').on('click', function () {
-    var cityInput = $('#cityset').val();
-    console.log(cityInput)
-    localStorage.setItem('Saved City', JSON.stringify(weather));
+    localStorage.setItem('savedCity', $('#cityset').val());
     var article = document.createElement("article")
     article.classList.add("tile", "is-child", "notification", "is-info")
     article.setAttribute("id", "weather-content")
@@ -162,20 +138,23 @@ $('#add-city').on('click', function () {
     root.appendChild(article)
     article.appendChild(currentCity)
     setWeather($('#cityset').val())
-    weather.push(cityInput);
 })
 
 
 //function to display the current weather and forecast
 function render(data3) {
+
     var currentDate = document.createElement("span")
+    // currentDate.class = ;'ljn    
     currentDate.innerText = moment.unix(data3.date).format(momentWeathr)
     var currentWeather = document.createElement("p")
-    currentWeather.innerText = "temp: " + data3.temp + " ˚F"
+    currentWeather.innerText = "temp: " + data3.temp +" ˚F"
     var root = document.getElementById("weather-content")
     root.appendChild(currentDate)
     root.appendChild(currentWeather)
 }
+// dataArray=[x, y ,z, fdsf, gsd, gsd]
+// dataArray.forEach(pppp => render(pppp))
 
 var weatherKey = "259bd6474c5faa56865476f0e7617266";
 //Weather API
@@ -211,20 +190,20 @@ function setWeather(x) {
         })
 }
 
-// //Deezer API - Track
-// fetch("https://deezerdevs-deezer.p.rapidapi.com/track/1109737", {
-//     "method": "GET",
-//     "headers": {
-//         "x-rapidapi-key": "Ut55yncQpLmshFtmNkz05x0K4gZ7p1lfFWzjsnuN3hmhNoFgqU",
-//         "x-rapidapi-host": "deezerdevs-deezer.p.rapidapi.com"
-//     }
-// })
-//     .then(function (response) {
-//         return response.json()
-//     })
-//     .then(function (data) {
-//         console.log(data);
-//     })
+//Deezer API - Track
+fetch("https://deezerdevs-deezer.p.rapidapi.com/track/1109737", {
+    "method": "GET",
+    "headers": {
+        "x-rapidapi-key": "Ut55yncQpLmshFtmNkz05x0K4gZ7p1lfFWzjsnuN3hmhNoFgqU",
+        "x-rapidapi-host": "deezerdevs-deezer.p.rapidapi.com"
+    }
+})
+    .then(function (response) {
+        return response.json()
+    })
+    .then(function (data) {
+        console.log(data);
+    })
 
 //Deezer API - Playlist
 fetch("https://deezerdevs-deezer.p.rapidapi.com/playlist/1699332611", {
@@ -244,7 +223,7 @@ fetch("https://deezerdevs-deezer.p.rapidapi.com/playlist/1699332611", {
             var src = data.tracks.data;
             var randSrc = Math.floor(Math.random() * src.length);
             var song = src[randSrc].preview;
-            // console.log(song)
+            console.log(song)
             $('#src').attr('src', song);
             // console.log(src)
         }
@@ -283,18 +262,16 @@ $(".delete").on("click", function () {
     modal3.hide();
 });
 
-
-// $('#remove').click(function () {
-//     if (this.id == 'remove') {
-//         $('#alarm-div').remove();
-//     }
-// });
-// })
+// Remove set alarm function
+removeBtn.on('click', function () {
+    $('m-auto p-auto').remove();
+    console.log('clicked');
+})
 
 
 
 
 // Burger icon 
-$('.navbar-burger').click(function () {
+$('.navbar-burger').click(function() {
     $('#navbarMenuHeroA, .navbar-burger').toggleClass('is-active');
-});
+  });  
