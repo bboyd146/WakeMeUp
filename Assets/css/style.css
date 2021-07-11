@@ -78,3 +78,10 @@ body {
     background-blend-mode: multiply;
  }
 
+ #alarm-div {
+   text-align: center;
+   font-size:xx-large;
+   font-weight: bold;
+   background-color: rgb(163, 162, 162);
+ }
+

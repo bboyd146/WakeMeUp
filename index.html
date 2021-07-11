@@ -72,6 +72,10 @@
   <section class="hero is-small is-dark has-text-centered">
     <div class="hero-body">
       <p class="subtitle">
+        <audio controls="true" id="music" preload="auto" class="is-hidden">
+          <source id="src" src="https://cdns-preview-b.dzcdn.net/stream/c-bc4fbe663376be4eab8c36a49a31a50b-3.mp3" />
+          Your browser does not support the audio element.
+        </audio>
         If you are <strong>atrocious</strong> at waking up and want to take the first step to not setting 10+ alarms.
         Good news! Wake Me Up, is designed for you, the heavy sleeper!
         Our team of grade A web developers have created a state of the art alarm, using the fine arts of Swedish Black
@@ -82,21 +86,20 @@
   </section>
   <div class="container">
     <div class="notification has-background-grey-darke has-text-centered has-text-weight-semibold">
-      <p class="pb-1">Feel free to browse through our catalog of tracks that will be a potential alarm sound for you !!</p>
+      <p class="pb-1">Feel free to browse through our catalog of tracks that will be a potential alarm sound for you !!
+      </p>
       <iframe title="deezer-widget" src="https://widget.deezer.com/widget/auto/playlist/1699332611" width="100%"
-      height="150" frameborder="0" allowtransparency="true" allow="encrypted-media; clipboard-write"></iframe>
+        height="150" frameborder="0" allowtransparency="true" allow="encrypted-media; clipboard-write"></iframe>
     </div>
   </div>
   <div class="columns">
     <div class="column" id="pastAlarms">
       <div class="colums is-mobile">
         <div class="column">
-          <audio controls id="music" preload="auto" class="is-hidden">
+          <!-- <audio controls="true" id="music" preload="auto">
             <source id="src" src="https://cdns-preview-b.dzcdn.net/stream/c-bc4fbe663376be4eab8c36a49a31a50b-3.mp3" />
             Your browser does not support the audio element.
-          </audio>
-          <!-- <iframe title="deezer-widget" src="https://widget.deezer.com/widget/auto/playlist/1699332611" width="100%"
-            height="150" frameborder="0" allowtransparency="true" allow="encrypted-media; clipboard-write"></iframe> -->
+          </audio> -->
         </div>
       </div>
     </div>
