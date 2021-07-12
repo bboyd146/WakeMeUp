@@ -16,7 +16,7 @@ As a heavy sleeper, I want to be able to set an alarm that plays random music ea
 Provide instructions and examples for use. Include screenshots as needed.
 To add a screenshot, create an `assets/images` folder in your repository and upload your screenshot to it. Then, using the relative filepath, add it to your README using the following syntax:
     ```md
-    ![page link](./Assets/img/Users_bradleyboyd_projects_my-flight-project-1_index.html(1).png)
+    ![page link](./Assets/img/Page.png)
     ```
 
 ## Credits
