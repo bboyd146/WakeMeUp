@@ -8,13 +8,15 @@ var removeBtn = $('#remove');
 var amSet = $('#am');
 var pmSet = $('#pm');
 var addTBtn = $('#add-time');
-var userHrs = $("#hours").val();
+var userHrs = $("#hours").val().trim();
 console.log(userHrs)
-var userMins = $('#minutes').val();
+var userMins = $('#minutes').val().trim();
+var setAP = userHrs + ":" + userMins + " " + amOrpm;
+var amOrpm = $('input[name="foobar"]:checked').parent('label').text().trim();
 
 
 // Var to display current date and time
-var momentHead = moment().format("dddd, MMMM Do YYYY, h:mm A");
+let momentHead = moment().format("dddd, MMMM Do YYYY, h:mm A");
 var momentAlarm = moment().format("h:mm A");
 var momentWeathr = "dddd, MMMM Do YYYY";
 var currentHr = parseInt(moment().format('h hh'));
@@ -26,7 +28,7 @@ console.log(currentMn);
 // var b = parseInt(userMins)
 // console.log(a);
 // console.log(b);
-
+moment();
 
 
 // inserting moment in elements
@@ -40,7 +42,20 @@ if (savedTimes !== null) {
     alarms.push(...JSON.parse(savedTimes));
 }
 
+function checkAlarm () {
+    if (momentAlarm === setAP) {
+        $('#music').trigger('play');
+    }
+}
 
+setInterval(checkAlarm, 60000);
+checkAlarm();
+
+
+
+
+console.log(momentAlarm);
+// console.log(setAP)
 displaySavedAlarms();
 
 
@@ -55,10 +70,12 @@ function writeAlarms() {
     var amOrpm = $('input[name="foobar"]:checked').parent('label').text().trim();
     var setAP = userHrs + ":" + userMins + " " + amOrpm;
     alarms.push(setAP);
+    console.log(setAP)
 
     localStorage.setItem('Saved Alarms', JSON.stringify(alarms));
 
     displaySavedAlarms();
+    checkAlarm();
 }
 
 
@@ -127,10 +144,10 @@ function StopAlarm() {
 
     $('#stop-song').click(function () {
         if (this.id == 'stop-song') {
-           $('#music').trigger('pause');
+            $('#music').trigger('pause');
         }
-        
-     });
+
+    });
 }
 
 // code for stop alarm button

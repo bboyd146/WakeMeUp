@@ -1,13 +1,5 @@
 # Wake Me Up!
 
-## Table of Contents
-If your README is long, add a table of contents to make it easy for users to find what they need.
-- [Description](#description)
-- [User Story](#userStory)
-- [Usage](#usage)
-- [Credits](#credits)
-- [Features](#features)
-- [How To Contribute](#howToContribute)
 
 ## Description
 This application is designed to allow a user to input a specific time that they want to wake up on any desired day.  I can stop the alarm and the application shows what song is playing. When the alarm goes off using either a known SoundCloud account, or SoundCloud itself, the user is prompted to turn off the alarm with no snooze button. The application will show the current time and weather forecast for the day so that the user can be aware of how the day will go.
@@ -24,7 +16,7 @@ As a heavy sleeper, I want to be able to set an alarm that plays random music ea
 Provide instructions and examples for use. Include screenshots as needed.
 To add a screenshot, create an `assets/images` folder in your repository and upload your screenshot to it. Then, using the relative filepath, add it to your README using the following syntax:
     ```md
-    ![alt text](assets/images/screenshot.png)
+    ![page link](./Assets/img/Page.png)
     ```
 
 ## Credits
